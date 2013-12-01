@@ -4,8 +4,10 @@
  */
 package ebayproject;
 
+import java.awt.event.ItemEvent;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JCheckBox;
 
 /**
@@ -14,11 +16,13 @@ import javax.swing.JCheckBox;
  */
 public class HomeSelection extends javax.swing.JPanel {
 
+    
+    private AtomicInteger numCheckboxesSelected;
     /**
      * Creates new form HomeSelection
      */
     public HomeSelection(HashMap<String, String> hm, List<JCheckBox> checkboxes, 
-            Runnable checkboxSelectedRunnable, HashMap<JCheckBox, HomeSelection> mapCheckboxToSearchPattern) {
+            Runnable checkboxSelectedRunnable, HashMap<JCheckBox, HomeSelection> mapCheckboxToSearchPattern, AtomicInteger numCheckboxesSelected) {
         initComponents();
         checkboxes.add(jCheckBox1);
         this.checkboxSelectedRunnable = checkboxSelectedRunnable;
@@ -29,8 +33,11 @@ public class HomeSelection extends javax.swing.JPanel {
             jCheckBox1.setText("name of search pattern here");
             data.put("name", "name of search pattern here");
         }
+        
         mapCheckboxToSearchPattern.put(jCheckBox1, this);
-        System.out.println("HomeSelection constructor");
+        
+        this.numCheckboxesSelected = numCheckboxesSelected;
+        //System.out.println("HomeSelection constructor");
     }
     
     public HashMap<String, String> getData() {
@@ -78,8 +85,13 @@ public class HomeSelection extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            numCheckboxesSelected.incrementAndGet();
+        } else {
+            numCheckboxesSelected.decrementAndGet();
+        }
+        
         javax.swing.SwingUtilities.invokeLater(checkboxSelectedRunnable);
-        //checkboxSelectedRunnable.run();
     }//GEN-LAST:event_jCheckBox1ItemStateChanged
 
     private HashMap<String, String> data;

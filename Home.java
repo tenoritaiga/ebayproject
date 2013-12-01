@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
@@ -19,6 +20,7 @@ import javax.swing.JCheckBox;
  */
 public class Home extends javax.swing.JFrame {
 
+    private AtomicInteger numCheckboxesSelected = new AtomicInteger(0);
     /**
      * Creates new form Home
      */
@@ -48,13 +50,15 @@ public class Home extends javax.swing.JFrame {
         
         checkBoxSelectedRunnable = new Runnable() {
             public void run() {
-                int numSelected = 0;
+                int numSelected = numCheckboxesSelected.get();
+                /*
                 synchronized(checkboxes) {
                     for(JCheckBox cb : checkboxes) {
                         if(cb.isSelected())
                             numSelected++;
                     }
                 }
+                */
                 
                 editButton.setEnabled(false);
                 deleteButton.setEnabled(false);
@@ -73,8 +77,10 @@ public class Home extends javax.swing.JFrame {
             }
         };
         
-        for(HashMap<String, String> hm : searchPatterns) {
-            this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern));
+        synchronized(searchPatterns) {
+            for(HashMap<String, String> hm : searchPatterns) {
+                this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern, numCheckboxesSelected));
+            }
         }
     }
 
@@ -248,7 +254,7 @@ public class Home extends javax.swing.JFrame {
         HashMap<String, String> hm = new HashMap<String, String>();
         this.searchPatterns.add(hm);
         hm.put("name", "new search pattern");
-        this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern));
+        this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern, numCheckboxesSelected));
         Helpers.serializeListOfHashMaps(this.searializedSearchPatternsFile, this.searchPatterns);
         this.jPanel1.repaint();
         this.jPanel1.updateUI();
