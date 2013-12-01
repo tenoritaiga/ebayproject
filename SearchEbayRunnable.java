@@ -12,6 +12,8 @@ import com.ebay.services.client.FindingServiceClientFactory;
 import com.ebay.services.finding.FindItemsAdvancedRequest;
 import com.ebay.services.finding.FindItemsAdvancedResponse;
 import com.ebay.services.finding.FindingServicePortType;
+import com.ebay.services.finding.ItemFilter;
+import com.ebay.services.finding.ItemFilterType;
 import com.ebay.services.finding.SearchItem;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -54,6 +56,23 @@ public class SearchEbayRunnable implements Runnable {
             //PaginationInput pi = new PaginationInput();
             //pi.setEntriesPerPage(2);
             //request.setPaginationInput(pi);
+            
+            ItemFilter objFilter1 = new ItemFilter();
+            objFilter1.setName(ItemFilterType.AVAILABLE_TO);
+            objFilter1.getValue().add("US");
+            
+            ItemFilter objFilter2 = new ItemFilter();
+            objFilter2.setName(ItemFilterType.LISTING_TYPE);
+            objFilter2.getValue().add("All");
+            
+            ItemFilter objFilter3 = new ItemFilter();
+            objFilter3.setName(ItemFilterType.HIDE_DUPLICATE_ITEMS);
+            objFilter3.getValue().add("true");
+            
+            List<ItemFilter> itemFilter = request.getItemFilter();
+            itemFilter.add(objFilter1);
+            itemFilter.add(objFilter2);
+            itemFilter.add(objFilter3);
 
             FindItemsAdvancedResponse result = serviceClient.findItemsAdvanced(request);
 
