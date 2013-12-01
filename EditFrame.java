@@ -4,6 +4,7 @@
  */
 package ebayproject;
 
+import static ebayproject.EditFrameDataHandling.RestoreFieldData;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.HashMap;
@@ -69,8 +70,10 @@ public class EditFrame extends javax.swing.JFrame {
             }
         });
         
-        this.searchPatternName.setText(data.get("name"));
-        this.keywords.setText(data.get("keywords"));
+        RestoreFieldData(searchPatternName, data, "name");
+        RestoreFieldData(keywords, data, "keywords");
+        //this.searchPatternName.setText(data.get("name"));
+        //this.keywords.setText(data.get("keywords"));
     }
 
     /**
