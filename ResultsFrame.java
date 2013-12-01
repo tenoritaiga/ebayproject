@@ -8,12 +8,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -112,6 +110,8 @@ public class ResultsFrame extends javax.swing.JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 statusLabel.setText("loading results");
+                statusLabel.repaint();
+                statusLabel.updateUI();
                 int selectedIndex = -1;
                 
                 synchronized(jList1) {
@@ -126,6 +126,8 @@ public class ResultsFrame extends javax.swing.JFrame {
                     }
                     
                     synchronized(listOfResults) {
+                        
+                        final AtomicInteger numLeft = new AtomicInteger(listOfResults.size());
                         // populate table using results
                         final DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
                         int rc = dtm.getRowCount();
@@ -133,6 +135,9 @@ public class ResultsFrame extends javax.swing.JFrame {
                             dtm.removeRow(rc-1);
                             rc--;
                         }
+                        
+                        if(listOfResults.isEmpty())
+                            statusLabel.setText("No results to display");
                         
                         for(HashMap<String, String> rowResult : listOfResults) {
                             synchronized(rowResult) {
@@ -144,6 +149,8 @@ public class ResultsFrame extends javax.swing.JFrame {
                                     @Override
                                     public void run() {
                                         dtm.insertRow(jTable1.getRowCount(),objArr);
+                                        if(numLeft.decrementAndGet() == 0)
+                                            statusLabel.setText("");
                                     }
                                 });
                             }
@@ -151,7 +158,7 @@ public class ResultsFrame extends javax.swing.JFrame {
                     }
                 }
                 
-                statusLabel.setText("");
+                //statusLabel.setText("");
             }
         });
     }

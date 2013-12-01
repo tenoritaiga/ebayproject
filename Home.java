@@ -30,7 +30,6 @@ public class Home extends javax.swing.JFrame {
             try {
                 FileInputStream f = new FileInputStream(this.searializedSearchPatternsFile);
                 ObjectInputStream s = new ObjectInputStream(f);
-                
                 ArrayList<HashMap<String, String>> fileObj = (ArrayList<HashMap<String, String>>) s.readObject();
                 s.close();
                 this.searchPatterns = fileObj;

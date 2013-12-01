@@ -83,18 +83,23 @@ public class SearchEbayRunnable implements Runnable {
             System.out.println("Found " + result.getSearchResult().getCount() + " items.");
             List<SearchItem> items = result.getSearchResult().getItem();
             
+            
+            ArrayList<HashMap<String, String>> listOfResults_temp = new ArrayList<HashMap<String, String>>();
             for (SearchItem item : items) {
-                synchronized(this.listOfResults) {
-                    
-                    //System.out.println(item.getTitle());
-                    
-                    HashMap<String, String> hm = new HashMap<String, String>();
-                    hm.put("name", item.getTitle());
-                    //hm.put("name","name");
-                    hm.put("image", item.getGalleryURL());
-                    hm.put("price", "Unknown");
-                    this.listOfResults.add(hm);
-                }  
+                HashMap<String, String> hm = new HashMap<String, String>();
+                hm.put("name", item.getTitle());
+                //hm.put("name","name");
+                hm.put("image", item.getGalleryURL());
+                hm.put("price", "Unknown");
+                hm.put("itemId", item.getItemId());
+                listOfResults_temp.add(hm);
+            }
+            
+            // do filtering of listOfResultsTemp here by itemId
+            Helpers.filterEbaySearchResultsByItemFilter(listOfResults_temp);
+            
+            synchronized(this.listOfResults) {
+                this.listOfResults.addAll(listOfResults_temp);
             }
         } catch (Exception e) {
             System.err.println("Oops, something bad happened while trying to run the query...");
