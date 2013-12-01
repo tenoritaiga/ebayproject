@@ -57,6 +57,4 @@ public class EditFrameDataHandling {
     public static void SaveFieldData(JComboBox cb, HashMap<String, String> data, String fieldName) {
         data.put(fieldName, ""+cb.getSelectedIndex());
     }
-    
-    
 }
