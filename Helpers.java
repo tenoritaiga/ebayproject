@@ -45,6 +45,21 @@ public class Helpers {
             previouslySeenItems = new HashMap<String, Date>();
         }
         
+        ArrayList<String> expiredPreviouslySeenItems = new ArrayList<String>();
+        for(String s : previouslySeenItems.keySet()) {
+            Date d = previouslySeenItems.get(s);
+            
+            // if d is too old (> 60 days?)
+            // add s to expiredPreviouslySeenItems
+            // for now always expire seen items so we dont run out of them
+            expiredPreviouslySeenItems.add(s);
+        }
+        
+        for(String s : expiredPreviouslySeenItems) {
+            previouslySeenItems.remove(s);
+        }
+        
+        
         ArrayList<HashMap<String, String>> itemsToRemove = new ArrayList<HashMap<String, String>>();
         for(HashMap<String, String> hm : results) {
             if(!hm.containsKey("itemId")) {
@@ -60,20 +75,7 @@ public class Helpers {
         }
         
         results.removeAll(itemsToRemove);
-        ArrayList<String> expiredPreviouslySeenItems = new ArrayList<String>();
-        for(String s : previouslySeenItems.keySet()) {
-            Date d = previouslySeenItems.get(s);
-            
-            // if d is too old (> 60 days?)
-            // add s to expiredPreviouslySeenItems
-            // for now always expire seen items so we dont run out of them
-            expiredPreviouslySeenItems.add(s);
-        }
-        
-        for(String s : expiredPreviouslySeenItems) {
-            previouslySeenItems.remove(s);
-        }
-        
+                
         try {
             System.out.println(String.format("serializing list of previously seen items"));
             FileOutputStream f = new FileOutputStream(file);

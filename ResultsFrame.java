@@ -88,6 +88,7 @@ public class ResultsFrame extends javax.swing.JFrame {
             }
         });
         
+        
         final AtomicInteger numSearchesRemaining = new AtomicInteger(data.size());
         final String[] names = new String[data.size()];
         for(int i = 0; i < data.size(); i++) {

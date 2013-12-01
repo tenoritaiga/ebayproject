@@ -245,7 +245,18 @@ public class Home extends javax.swing.JFrame {
 
     private void performSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performSearchButtonActionPerformed
         try {
-            ResultsFrame rf = new ResultsFrame(this, this.searchPatterns);
+            ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+            
+            synchronized(checkboxes) {
+                for(JCheckBox cb : checkboxes) {
+                    if(cb.isSelected()) {
+                        HomeSelection hs = this.mapCheckboxToSearchPattern.get(cb);
+                        list.add(hs.getData());
+                    }
+                }
+            }
+            ResultsFrame rf = new ResultsFrame(this, list);
+            //ResultsFrame rf = new ResultsFrame(this, this.searchPatterns);
             rf.setVisible(true);
         } catch (Exception ex) {
             System.err.println("could not show results frame");
