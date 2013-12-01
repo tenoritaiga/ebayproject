@@ -21,6 +21,7 @@ public class SearchDataConverter {
                 "New Taiwan Dollar (TWD)",
                 "Pound Sterling (GBP)"
            };
+       
        try {
            Integer i = Integer.parseInt(number);
             return data[i];
