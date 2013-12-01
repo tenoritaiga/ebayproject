@@ -20,7 +20,6 @@ import javax.swing.JCheckBox;
  */
 public class Home extends javax.swing.JFrame {
 
-    private AtomicInteger numCheckboxesSelected = new AtomicInteger(0);
     /**
      * Creates new form Home
      */
@@ -50,15 +49,14 @@ public class Home extends javax.swing.JFrame {
         
         checkBoxSelectedRunnable = new Runnable() {
             public void run() {
-                int numSelected = numCheckboxesSelected.get();
-                /*
+                int numSelected = 0;
+                
                 synchronized(checkboxes) {
                     for(JCheckBox cb : checkboxes) {
                         if(cb.isSelected())
                             numSelected++;
                     }
                 }
-                */
                 
                 editButton.setEnabled(false);
                 deleteButton.setEnabled(false);
@@ -79,7 +77,7 @@ public class Home extends javax.swing.JFrame {
         
         synchronized(searchPatterns) {
             for(HashMap<String, String> hm : searchPatterns) {
-                this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern, numCheckboxesSelected));
+                this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern));
             }
         }
     }
@@ -224,16 +222,23 @@ public class Home extends javax.swing.JFrame {
         System.out.println("delete button pressed");
         ArrayList<HashMap<String, String>> toRemove = new ArrayList<HashMap<String, String>>();
         ArrayList<Component> componentsToRemove = new ArrayList<Component>();
-        for(JCheckBox cb : checkboxes) {
-            if(cb.isSelected()) {
-                toRemove.add(this.mapCheckboxToSearchPattern.get(cb).getData());
-                componentsToRemove.add(this.mapCheckboxToSearchPattern.get(cb));
+        
+        synchronized(checkboxes) {
+            for(JCheckBox cb : checkboxes) {
+                if(cb.isSelected()) {
+                    toRemove.add(this.mapCheckboxToSearchPattern.get(cb).getData());
+                    componentsToRemove.add(this.mapCheckboxToSearchPattern.get(cb));
+                }
             }
         }
         
         this.searchPatterns.removeAll(toRemove);
-        for(Component c : componentsToRemove)
+        for(Component c : componentsToRemove) {
             this.jPanel1.remove(c);
+            if(c instanceof HomeSelection) {
+                ((HomeSelection)c).delete();
+            }
+        }
         this.jPanel1.repaint();
         this.jPanel1.updateUI();
         Helpers.serializeListOfHashMaps(searializedSearchPatternsFile, searchPatterns);
@@ -254,7 +259,7 @@ public class Home extends javax.swing.JFrame {
         HashMap<String, String> hm = new HashMap<String, String>();
         this.searchPatterns.add(hm);
         hm.put("name", "new search pattern");
-        this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern, numCheckboxesSelected));
+        this.jPanel1.add(new HomeSelection(hm, this.checkboxes, checkBoxSelectedRunnable, mapCheckboxToSearchPattern));
         Helpers.serializeListOfHashMaps(this.searializedSearchPatternsFile, this.searchPatterns);
         this.jPanel1.repaint();
         this.jPanel1.updateUI();

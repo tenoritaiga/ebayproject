@@ -17,27 +17,38 @@ import javax.swing.JCheckBox;
 public class HomeSelection extends javax.swing.JPanel {
 
     
-    private AtomicInteger numCheckboxesSelected;
+    private HashMap<JCheckBox, HomeSelection> mapCheckboxToSearchPattern;
+    private List<JCheckBox> checkboxes;
     /**
      * Creates new form HomeSelection
      */
     public HomeSelection(HashMap<String, String> hm, List<JCheckBox> checkboxes, 
-            Runnable checkboxSelectedRunnable, HashMap<JCheckBox, HomeSelection> mapCheckboxToSearchPattern, AtomicInteger numCheckboxesSelected) {
+            Runnable checkboxSelectedRunnable, 
+            HashMap<JCheckBox, HomeSelection> mapCheckboxToSearchPattern) {
+        
         initComponents();
-        checkboxes.add(jCheckBox1);
-        this.checkboxSelectedRunnable = checkboxSelectedRunnable;
-        data = hm;
-        if(data.containsKey("name")) {
-            jCheckBox1.setText(data.get("name"));
-        } else {
-            jCheckBox1.setText("name of search pattern here");
-            data.put("name", "name of search pattern here");
+        
+        synchronized(checkboxes) {
+            checkboxes.add(jCheckBox1);
         }
         
-        mapCheckboxToSearchPattern.put(jCheckBox1, this);
+        this.checkboxSelectedRunnable = checkboxSelectedRunnable;
+        data = hm;
+        synchronized(data) {
+            if(data.containsKey("name")) {
+                jCheckBox1.setText(data.get("name"));
+            } else {
+                jCheckBox1.setText("name of search pattern here");
+                data.put("name", "name of search pattern here");
+            }
+        }
         
-        this.numCheckboxesSelected = numCheckboxesSelected;
-        //System.out.println("HomeSelection constructor");
+        synchronized(mapCheckboxToSearchPattern) {
+            mapCheckboxToSearchPattern.put(jCheckBox1, this);
+        }
+        
+        this.mapCheckboxToSearchPattern = mapCheckboxToSearchPattern;
+        this.checkboxes = checkboxes;
     }
     
     public HashMap<String, String> getData() {
@@ -46,6 +57,20 @@ public class HomeSelection extends javax.swing.JPanel {
     
     public void updateLabels() {
         this.jCheckBox1.setText(data.get("name"));
+    }
+    
+    public void delete() {
+        if(this.jCheckBox1.isSelected()) {
+            this.jCheckBox1.setSelected(false);
+        }
+        
+        synchronized(mapCheckboxToSearchPattern) {
+            mapCheckboxToSearchPattern.remove(this.jCheckBox1);
+        }
+        
+        synchronized(checkboxes) {
+            checkboxes.remove(jCheckBox1);
+        }
     }
 
     /**
@@ -85,13 +110,7 @@ public class HomeSelection extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
-        if(evt.getStateChange() == ItemEvent.SELECTED) {
-            numCheckboxesSelected.incrementAndGet();
-        } else {
-            numCheckboxesSelected.decrementAndGet();
-        }
-        
-        javax.swing.SwingUtilities.invokeLater(checkboxSelectedRunnable);
+       javax.swing.SwingUtilities.invokeLater(checkboxSelectedRunnable);
     }//GEN-LAST:event_jCheckBox1ItemStateChanged
 
     private HashMap<String, String> data;
