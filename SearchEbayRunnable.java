@@ -72,8 +72,6 @@ public class SearchEbayRunnable implements Runnable {
             ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
             ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
             
-            
-            
             List<ItemFilter> itemFilter = request.getItemFilter();
             itemFilter.add(objFilter1);
             itemFilter.add(objFilter2);

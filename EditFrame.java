@@ -5,6 +5,7 @@
 package ebayproject;
 
 import static ebayproject.EditFrameDataHandling.RestoreFieldData;
+import static ebayproject.EditFrameDataHandling.SaveFieldData;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.HashMap;
@@ -89,11 +90,11 @@ public class EditFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         keywords = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        keywords_specfier_combobox = new javax.swing.JComboBox();
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        categories_combobox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -108,17 +109,17 @@ public class EditFrame extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        item_condition_combobox = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        sort_results_combobox = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         searchPatternName = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jCheckBox8 = new javax.swing.JCheckBox();
         jCheckBox9 = new javax.swing.JCheckBox();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox();
+        listings_first_combobox = new javax.swing.JComboBox();
+        listings_second_combobox = new javax.swing.JComboBox();
         jCheckBox10 = new javax.swing.JCheckBox();
         jTextField1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -135,18 +136,18 @@ public class EditFrame extends javax.swing.JFrame {
         jCheckBox16 = new javax.swing.JCheckBox();
         jCheckBox17 = new javax.swing.JCheckBox();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox();
+        location_first_combobox = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jCheckBox18 = new javax.swing.JCheckBox();
-        jComboBox8 = new javax.swing.JComboBox();
+        location_second_combobox = new javax.swing.JComboBox();
         jCheckBox19 = new javax.swing.JCheckBox();
-        jComboBox9 = new javax.swing.JComboBox();
+        location_third_combobox = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jCheckBox21 = new javax.swing.JCheckBox();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox();
+        currency_combobox = new javax.swing.JComboBox();
         saveButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -159,10 +160,10 @@ public class EditFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Keywords:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All words, any order", "Any words, any order", "Exact words, exact order", "Exact words, any order" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        keywords_specfier_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All words, any order", "Any words, any order", "Exact words, exact order", "Exact words, any order" }));
+        keywords_specfier_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                keywords_specfier_comboboxActionPerformed(evt);
             }
         });
 
@@ -172,7 +173,7 @@ public class EditFrame extends javax.swing.JFrame {
 
         jLabel3.setText("In Category");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All Categories", "Antiques", "Art", "Baby", "Books", "Business & Industrial", "Cameras & Photo", "Cell Phones & Accessories", "Clothing, Shoes & Accessories", "Coins & Paper Money", "Collectibles", "Computers/Tablets & Networking", "Consumer Electronics", "Crafts", "Dolls & Bears", "DVDs & Movies", "eBay Motors", "Entertainment Memorabilia", "Gift Cards & Coupons", "Health & Beauty", "Home & Garden", "Jewelry & Watches", "Music", "Musical Instruments & Gear", "Pet Supplies", "Pottery & Glass", "Real Estate", "Specialty Services", "Sporting Goods", "Sports Mem, Cards & Fan Shop", "Stamps", "Tickets & Experiences", "Toys & Hobbies", "Travel", "Video Games & Consoles", "Everything Else" }));
+        categories_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All Categories", "Antiques", "Art", "Baby", "Books", "Business & Industrial", "Cameras & Photo", "Cell Phones & Accessories", "Clothing, Shoes & Accessories", "Coins & Paper Money", "Collectibles", "Computers/Tablets & Networking", "Consumer Electronics", "Crafts", "Dolls & Bears", "DVDs & Movies", "eBay Motors", "Entertainment Memorabilia", "Gift Cards & Coupons", "Health & Beauty", "Home & Garden", "Jewelry & Watches", "Music", "Musical Instruments & Gear", "Pet Supplies", "Pottery & Glass", "Real Estate", "Specialty Services", "Sporting Goods", "Sports Mem, Cards & Fan Shop", "Stamps", "Tickets & Experiences", "Toys & Hobbies", "Travel", "Video Games & Consoles", "Everything Else" }));
 
         jLabel4.setText("Search Including");
 
@@ -245,11 +246,11 @@ public class EditFrame extends javax.swing.JFrame {
 
         jLabel8.setText("Item Condition");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "New", "Used", "Unspecified" }));
+        item_condition_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "New", "Used", "Unspecified" }));
 
         jLabel9.setText("Sort Results By");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Time: Ending Soonest", "Time: Newly Listed", "Price + Shipping: Lowest First", "Price + Shipping: Highest First", "Price: Highest First", "Distance: Nearest First", "Best Match" }));
+        sort_results_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Time: Ending Soonest", "Time: Newly Listed", "Price + Shipping: Lowest First", "Price + Shipping: Highest First", "Price: Highest First", "Distance: Nearest First", "Best Match" }));
 
         jLabel10.setText("Name For This Search Pattern");
 
@@ -271,7 +272,7 @@ public class EditFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(keywords, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(keywords_specfier_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
@@ -280,7 +281,7 @@ public class EditFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox1)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(categories_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jCheckBox2)
                             .addComponent(jCheckBox3)
@@ -295,7 +296,7 @@ public class EditFrame extends javax.swing.JFrame {
                                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(item_condition_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jCheckBox6)
@@ -303,7 +304,7 @@ public class EditFrame extends javax.swing.JFrame {
                                 .addGap(116, 116, 116)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(sort_results_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jCheckBox7)
                                 .addGap(120, 120, 120)
@@ -320,13 +321,13 @@ public class EditFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(keywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(keywords_specfier_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(categories_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -359,12 +360,12 @@ public class EditFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(item_condition_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(sort_results_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -387,14 +388,14 @@ public class EditFrame extends javax.swing.JFrame {
             }
         });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ending within", "Ending in more than", "Started within" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        listings_first_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ending within", "Ending in more than", "Started within" }));
+        listings_first_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                listings_first_comboboxActionPerformed(evt);
             }
         });
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1 hour", "2 hours", "3 hours", "4 hours", "5 hours", "12 hours", "24 hours", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days" }));
+        listings_second_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1 hour", "2 hours", "3 hours", "4 hours", "5 hours", "12 hours", "24 hours", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days" }));
 
         jCheckBox10.setText("Number of bids from");
         jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
@@ -445,7 +446,7 @@ public class EditFrame extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel15.setText("Location Options");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10 miles", "25 miles", "50 miles", "75 miles", "100 miles", "150 miles", "200 miles", "250 miles", "500 miles", "750 miles", "1000 miles", "1500 miles", "2000 miles" }));
+        location_first_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10 miles", "25 miles", "50 miles", "75 miles", "100 miles", "150 miles", "200 miles", "250 miles", "500 miles", "750 miles", "1000 miles", "1500 miles", "2000 miles" }));
 
         jLabel16.setText("of ZIP code");
 
@@ -453,11 +454,11 @@ public class EditFrame extends javax.swing.JFrame {
 
         jCheckBox18.setText("Only show items within");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
+        location_second_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
 
         jCheckBox19.setText("Only show items that ship to");
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
+        location_third_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel17.setText("Seller Options");
@@ -469,10 +470,10 @@ public class EditFrame extends javax.swing.JFrame {
 
         jLabel19.setText("Preferred currency:");
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "US Dollar (USD)", "Australian Dollar (AUD)", "Canadian dollar (CAD)", "Euro (EUR)", "Indian Rupee (INR)", "New Taiwan Dollar (TWD)", "Pound Sterling (GBP)", " ", " ", " " }));
-        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
+        currency_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "US Dollar (USD)", "Australian Dollar (AUD)", "Canadian dollar (CAD)", "Euro (EUR)", "Indian Rupee (INR)", "New Taiwan Dollar (TWD)", "Pound Sterling (GBP)", " ", " ", " " }));
+        currency_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox10ActionPerformed(evt);
+                currency_comboboxActionPerformed(evt);
             }
         });
 
@@ -487,11 +488,11 @@ public class EditFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jCheckBox19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(location_third_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jCheckBox18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(location_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jCheckBox16)
                     .addComponent(jCheckBox14)
                     .addComponent(jCheckBox13)
@@ -507,9 +508,9 @@ public class EditFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jCheckBox9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(listings_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(listings_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11)
                     .addComponent(jCheckBox8)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -525,7 +526,7 @@ public class EditFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jCheckBox17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(location_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -536,7 +537,7 @@ public class EditFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(currency_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(405, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -550,8 +551,8 @@ public class EditFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBox9)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(listings_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(listings_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox10)
@@ -581,17 +582,17 @@ public class EditFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox17)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(location_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox18)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(location_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox19)
-                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(location_third_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -601,7 +602,7 @@ public class EditFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(currency_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -644,9 +645,9 @@ public class EditFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_keywordsActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void keywords_specfier_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywords_specfier_comboboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_keywords_specfier_comboboxActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
@@ -690,8 +691,10 @@ public class EditFrame extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO save data here
-        data.put("name", this.searchPatternName.getText());
-        data.put("keywords", this.keywords.getText());
+        SaveFieldData(searchPatternName, data, "name");
+        SaveFieldData(keywords, data, "keywords");
+        //data.put("name", this.searchPatternName.getText());
+        //data.put("keywords", this.keywords.getText());
         if(this.serializeDataRunnable != null)
             this.serializeDataRunnable.run();
     }//GEN-LAST:event_saveButtonActionPerformed
@@ -704,9 +707,9 @@ public class EditFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox9ActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void listings_first_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listings_first_comboboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_listings_first_comboboxActionPerformed
 
     private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
         // TODO add your handling code here:
@@ -720,9 +723,9 @@ public class EditFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox17ActionPerformed
 
-    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox10ActionPerformed
+    private void currency_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currency_comboboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox10ActionPerformed
+    }//GEN-LAST:event_currency_comboboxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -771,6 +774,9 @@ public class EditFrame extends javax.swing.JFrame {
     private JFrame homeWindow = null;
     private HashMap<String, String> data = new HashMap<String, String>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox categories_combobox;
+    private javax.swing.JComboBox currency_combobox;
+    private javax.swing.JComboBox item_condition_combobox;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
@@ -791,16 +797,6 @@ public class EditFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -832,7 +828,14 @@ public class EditFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField keywords;
+    private javax.swing.JComboBox keywords_specfier_combobox;
+    private javax.swing.JComboBox listings_first_combobox;
+    private javax.swing.JComboBox listings_second_combobox;
+    private javax.swing.JComboBox location_first_combobox;
+    private javax.swing.JComboBox location_second_combobox;
+    private javax.swing.JComboBox location_third_combobox;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField searchPatternName;
+    private javax.swing.JComboBox sort_results_combobox;
     // End of variables declaration//GEN-END:variables
 }
