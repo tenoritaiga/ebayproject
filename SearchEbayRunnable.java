@@ -39,6 +39,16 @@ public class SearchEbayRunnable implements Runnable {
         this.jList1 = jList1;
         this.statusLabel = statusLabel;
     }
+    
+    public ItemFilter addItemFilter(ItemFilterType filterType, String value) {
+        
+        ItemFilter itemfilter = new ItemFilter();
+        itemfilter.setName(filterType);
+        itemfilter.getValue().add(value);
+        
+        return itemfilter;
+        
+    }
 
     public void run() {
 
@@ -57,17 +67,12 @@ public class SearchEbayRunnable implements Runnable {
             //pi.setEntriesPerPage(2);
             //request.setPaginationInput(pi);
             
-            ItemFilter objFilter1 = new ItemFilter();
-            objFilter1.setName(ItemFilterType.AVAILABLE_TO);
-            objFilter1.getValue().add("US");
+            ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
+            ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
+            ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
+            ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
             
-            ItemFilter objFilter2 = new ItemFilter();
-            objFilter2.setName(ItemFilterType.LISTING_TYPE);
-            objFilter2.getValue().add("All");
             
-            ItemFilter objFilter3 = new ItemFilter();
-            objFilter3.setName(ItemFilterType.HIDE_DUPLICATE_ITEMS);
-            objFilter3.getValue().add("true");
             
             List<ItemFilter> itemFilter = request.getItemFilter();
             itemFilter.add(objFilter1);
