@@ -25,9 +25,17 @@ public class EditFrameDataHandling {
     public static void RestoreFieldData(JCheckBox cb, HashMap<String, String> data, String fieldName) {
         try {
             if(data.containsKey(fieldName)) {
-                cb.setSelected(Boolean.parseBoolean(data.get(fieldName)));
+                boolean b = Boolean.parseBoolean(data.get(fieldName));
+                // do this to ensure that item state changes, triggering item state change listeners
+                // final state will be what we want
+                cb.setSelected(!b); 
+                cb.setSelected(b);
+                
             }
         } catch (Exception ex) {
+            // do this to ensure that item state changes, triggering item state change listeners
+            // final state will be what we want
+            cb.setSelected(true);
             cb.setSelected(false);
         }
     }

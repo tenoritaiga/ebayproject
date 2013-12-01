@@ -74,11 +74,42 @@ public class EditFrame extends javax.swing.JFrame {
         
         RestoreFieldData(searchPatternName, data, "name");
         RestoreFieldData(keywords, data, "keywords");
+        RestoreFieldData(keywords_specfier_combobox, data, "keywords_specfier_combobox");
+        RestoreFieldData(excludeKeywordsTextfield, data, "excludeKeywordsTextfield");
+        RestoreFieldData(searchincluding_row1_checkbox, data, "searchincluding_row1_checkbox");
+        RestoreFieldData(searchincluding_row2_checkbox, data, "searchincluding_row2_checkbox");
+        RestoreFieldData(searchincluding_row3_checkbox, data, "searchincluding_row3_checkbox");
         RestoreFieldData(priceConstraintsCheckbox, data, "priceConstraintsCheckbox");
         RestoreFieldData(this.priceConstraintsField1, data, "priceConstraintsField1");
         RestoreFieldData(this.priceConstraintsField2, data, "priceConstraintsField2");
-        //this.searchPatternName.setText(data.get("name"));
-        //this.keywords.setText(data.get("keywords"));
+        RestoreFieldData(buyingformats_row1_checkbox, data, "buyingformats_row1_checkbox");
+        RestoreFieldData(buyingformats_row2_checkbox, data, "buyingformats_row2_checkbox");
+        RestoreFieldData(buyingformats_row3_checkbox, data, "buyingformats_row3_checkbox");
+        RestoreFieldData(item_condition_combobox, data, "item_condition_combobox");
+        RestoreFieldData(onlyshowitems_row1_checkbox, data, "onlyshowitems_row1_checkbox");
+        RestoreFieldData(onlyshowitems_row2_checkbox, data, "onlyshowitems_row2_checkbox");
+        RestoreFieldData(onlyshowitems_row2_field1, data, "onlyshowitems_row2_field1");
+        RestoreFieldData(onlyshowitems_row2_field2, data, "onlyshowitems_row2_field2");
+        RestoreFieldData(onlyshowitems_row3_checkbox, data, "onlyshowitems_row3_checkbox");
+        RestoreFieldData(onlyshowitems_row3_field1, data, "onlyshowitems_row3_field1");
+        RestoreFieldData(onlyshowitems_row3_field2, data, "onlyshowitems_row3_field2");
+        RestoreFieldData(onlyshowitems_row4_checkbox, data, "onlyshowitems_row4_checkbox");
+        RestoreFieldData(onlyshowitems_row4_field1, data, "onlyshowitems_row4_field1");
+        RestoreFieldData(onlyshowitems_row4_field2, data, "onlyshowitems_row4_field2");
+        RestoreFieldData(onlyshowitems_row5_checkbox, data, "onlyshowitems_row5_checkbox");
+        RestoreFieldData(onlyshowitems_row6_checkbox, data, "onlyshowitems_row6_checkbox");
+        RestoreFieldData(onlyshowitems_row7_checkbox, data, "onlyshowitems_row7_checkbox");
+        RestoreFieldData(shippingoptions_row1_checkbox, data, "shippingoptions_row1_checkbox");
+        RestoreFieldData(shippingoptions_row2_checkbox, data, "shippingoptions_row2_checkbox");
+        RestoreFieldData(location_row1_checkbox, data, "location_row1_checkbox");
+        RestoreFieldData(location_row1_field1, data, "location_row1_field1");
+        RestoreFieldData(location_row1_field2, data, "location_row1_field2");
+        RestoreFieldData(location_row2_checkbox, data, "location_row2_checkbox");
+        RestoreFieldData(location_row2_field1, data, "location_row2_field1");
+        RestoreFieldData(location_row3_checkbox, data, "location_row3_checkbox");
+        RestoreFieldData(location_row3_field1, data, "location_row3_field1");
+        RestoreFieldData(selleroptions_checkbox, data, "selleroptions_checkbox");
+        RestoreFieldData(currency_combobox, data, "currency_combobox");
     }
 
     /**
@@ -95,18 +126,18 @@ public class EditFrame extends javax.swing.JFrame {
         keywords = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         keywords_specfier_combobox = new javax.swing.JComboBox();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        excludeKeywordsTextfield = new javax.swing.JTextField();
+        excludeKeywordsLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         categories_combobox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        searchincluding_row1_checkbox = new javax.swing.JCheckBox();
+        searchincluding_row2_checkbox = new javax.swing.JCheckBox();
+        searchincluding_row3_checkbox = new javax.swing.JCheckBox();
         priceConstraintsCheckbox = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
+        buyingformats_row1_checkbox = new javax.swing.JCheckBox();
+        buyingformats_row2_checkbox = new javax.swing.JCheckBox();
+        buyingformats_row3_checkbox = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         priceConstraintsField1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -120,35 +151,35 @@ public class EditFrame extends javax.swing.JFrame {
         searchPatternName = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        listingsCheckbox = new javax.swing.JCheckBox();
-        listings_first_combobox = new javax.swing.JComboBox();
-        listings_second_combobox = new javax.swing.JComboBox();
-        numberOfBidsCheckbox = new javax.swing.JCheckBox();
-        numberOfBidsField1 = new javax.swing.JTextField();
+        onlyshowitems_row1_checkbox = new javax.swing.JCheckBox();
+        onlyshowitems_row2_checkbox = new javax.swing.JCheckBox();
+        onlyshowitems_row2_field1 = new javax.swing.JComboBox();
+        onlyshowitems_row2_field2 = new javax.swing.JComboBox();
+        onlyshowitems_row3_checkbox = new javax.swing.JCheckBox();
+        onlyshowitems_row3_field1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        numberOfBidsField2 = new javax.swing.JTextField();
-        numberOfItemListingsCheckbox = new javax.swing.JCheckBox();
+        onlyshowitems_row3_field2 = new javax.swing.JTextField();
+        onlyshowitems_row4_checkbox = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
-        numberOfItemListingsField1 = new javax.swing.JTextField();
-        numberOfItemListingsField2 = new javax.swing.JTextField();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
+        onlyshowitems_row4_field1 = new javax.swing.JTextField();
+        onlyshowitems_row4_field2 = new javax.swing.JTextField();
+        onlyshowitems_row5_checkbox = new javax.swing.JCheckBox();
+        onlyshowitems_row6_checkbox = new javax.swing.JCheckBox();
+        onlyshowitems_row7_checkbox = new javax.swing.JCheckBox();
         jLabel14 = new javax.swing.JLabel();
-        jCheckBox15 = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jCheckBox17 = new javax.swing.JCheckBox();
+        shippingoptions_row1_checkbox = new javax.swing.JCheckBox();
+        shippingoptions_row2_checkbox = new javax.swing.JCheckBox();
+        location_row1_checkbox = new javax.swing.JCheckBox();
         jLabel15 = new javax.swing.JLabel();
-        location_first_combobox = new javax.swing.JComboBox();
+        location_row1_field1 = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jCheckBox18 = new javax.swing.JCheckBox();
-        location_second_combobox = new javax.swing.JComboBox();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        location_third_combobox = new javax.swing.JComboBox();
+        location_row1_field2 = new javax.swing.JTextField();
+        location_row2_checkbox = new javax.swing.JCheckBox();
+        location_row2_field1 = new javax.swing.JComboBox();
+        location_row3_checkbox = new javax.swing.JCheckBox();
+        location_row3_field1 = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
-        jCheckBox21 = new javax.swing.JCheckBox();
+        selleroptions_checkbox = new javax.swing.JCheckBox();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         currency_combobox = new javax.swing.JComboBox();
@@ -171,9 +202,7 @@ public class EditFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setText("jTextField2");
-
-        jLabel2.setText("Exclude Words From Search");
+        excludeKeywordsLabel.setText("Exclude Words From Search");
 
         jLabel3.setText("In Category");
 
@@ -182,24 +211,24 @@ public class EditFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Search Including");
 
-        jCheckBox1.setText("Title and Description");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        searchincluding_row1_checkbox.setText("Title and Description");
+        searchincluding_row1_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                searchincluding_row1_checkboxActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Completed Listings");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        searchincluding_row2_checkbox.setText("Completed Listings");
+        searchincluding_row2_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                searchincluding_row2_checkboxActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("Sold Listings");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        searchincluding_row3_checkbox.setText("Sold Listings");
+        searchincluding_row3_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                searchincluding_row3_checkboxActionPerformed(evt);
             }
         });
 
@@ -215,24 +244,24 @@ public class EditFrame extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox5.setText("Auction");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        buyingformats_row1_checkbox.setText("Auction");
+        buyingformats_row1_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                buyingformats_row1_checkboxActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setText("Buy It Now");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        buyingformats_row2_checkbox.setText("Buy It Now");
+        buyingformats_row2_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                buyingformats_row2_checkboxActionPerformed(evt);
             }
         });
 
-        jCheckBox7.setText("Classifieds");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        buyingformats_row3_checkbox.setText("Classifieds");
+        buyingformats_row3_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                buyingformats_row3_checkboxActionPerformed(evt);
             }
         });
 
@@ -284,47 +313,45 @@ public class EditFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(keywords, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(keywords_specfier_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(keywords_specfier_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchincluding_row1_checkbox)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(categories_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(excludeKeywordsLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                        .addComponent(excludeKeywordsTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(searchincluding_row2_checkbox)
+                    .addComponent(searchincluding_row3_checkbox)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(priceConstraintsCheckbox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(priceConstraintsField1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(priceConstraintsField2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(item_condition_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jLabel3)
-                            .addComponent(categories_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(priceConstraintsCheckbox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(priceConstraintsField1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(priceConstraintsField2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(item_condition_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox6)
-                                    .addComponent(jCheckBox5))
-                                .addGap(116, 116, 116)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(sort_results_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jCheckBox7)
-                                .addGap(120, 120, 120)
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchPatternName, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(buyingformats_row2_checkbox)
+                            .addComponent(buyingformats_row1_checkbox))
+                        .addGap(116, 116, 116)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sort_results_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(buyingformats_row3_checkbox)
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchPatternName, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,21 +360,22 @@ public class EditFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(keywords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(keywords_specfier_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(keywords_specfier_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(categories_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categories_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excludeKeywordsLabel)
+                    .addComponent(excludeKeywordsTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(searchincluding_row1_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox2)
+                .addComponent(searchincluding_row2_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox3)
+                .addComponent(searchincluding_row3_checkbox)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -361,12 +389,12 @@ public class EditFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox5)
+                        .addComponent(buyingformats_row1_checkbox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox6)
+                        .addComponent(buyingformats_row2_checkbox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox7)
+                            .addComponent(buyingformats_row3_checkbox)
                             .addComponent(jLabel10)
                             .addComponent(searchPatternName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -378,7 +406,7 @@ public class EditFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(sort_results_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Basic Settings", jPanel1);
@@ -386,111 +414,116 @@ public class EditFrame extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel11.setText("Only Show Items:");
 
-        jCheckBox8.setText("From sellers that accept PayPal");
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+        onlyshowitems_row1_checkbox.setText("From sellers that accept PayPal");
+        onlyshowitems_row1_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
+                onlyshowitems_row1_checkboxActionPerformed(evt);
             }
         });
 
-        listingsCheckbox.setText("Listings");
-        listingsCheckbox.addItemListener(new java.awt.event.ItemListener() {
+        onlyshowitems_row2_checkbox.setText("Listings");
+        onlyshowitems_row2_checkbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                listingsCheckboxItemStateChanged(evt);
+                onlyshowitems_row2_checkboxItemStateChanged(evt);
             }
         });
-        listingsCheckbox.addActionListener(new java.awt.event.ActionListener() {
+        onlyshowitems_row2_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listingsCheckboxActionPerformed(evt);
+                onlyshowitems_row2_checkboxActionPerformed(evt);
             }
         });
 
-        listings_first_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ending within", "Ending in more than", "Started within" }));
-        listings_first_combobox.addActionListener(new java.awt.event.ActionListener() {
+        onlyshowitems_row2_field1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ending within", "Ending in more than", "Started within" }));
+        onlyshowitems_row2_field1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listings_first_comboboxActionPerformed(evt);
+                onlyshowitems_row2_field1ActionPerformed(evt);
             }
         });
 
-        listings_second_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1 hour", "2 hours", "3 hours", "4 hours", "5 hours", "12 hours", "24 hours", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days" }));
+        onlyshowitems_row2_field2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1 hour", "2 hours", "3 hours", "4 hours", "5 hours", "12 hours", "24 hours", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days" }));
 
-        numberOfBidsCheckbox.setText("Number of bids from");
-        numberOfBidsCheckbox.addItemListener(new java.awt.event.ItemListener() {
+        onlyshowitems_row3_checkbox.setText("Number of bids from");
+        onlyshowitems_row3_checkbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                numberOfBidsCheckboxItemStateChanged(evt);
+                onlyshowitems_row3_checkboxItemStateChanged(evt);
             }
         });
-        numberOfBidsCheckbox.addActionListener(new java.awt.event.ActionListener() {
+        onlyshowitems_row3_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numberOfBidsCheckboxActionPerformed(evt);
+                onlyshowitems_row3_checkboxActionPerformed(evt);
             }
         });
-
-        numberOfBidsField1.setText("jTextField1");
 
         jLabel12.setText("to");
 
-        numberOfBidsField2.setText("jTextField5");
-
-        numberOfItemListingsCheckbox.setText("Number of item listings from");
-        numberOfItemListingsCheckbox.addItemListener(new java.awt.event.ItemListener() {
+        onlyshowitems_row4_checkbox.setText("Number of item listings from");
+        onlyshowitems_row4_checkbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                numberOfItemListingsCheckboxItemStateChanged(evt);
+                onlyshowitems_row4_checkboxItemStateChanged(evt);
             }
         });
-        numberOfItemListingsCheckbox.addActionListener(new java.awt.event.ActionListener() {
+        onlyshowitems_row4_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numberOfItemListingsCheckboxActionPerformed(evt);
+                onlyshowitems_row4_checkboxActionPerformed(evt);
             }
         });
 
         jLabel13.setText("to");
 
-        numberOfItemListingsField1.setText("jTextField8");
+        onlyshowitems_row5_checkbox.setText("Items listed as lots");
 
-        numberOfItemListingsField2.setText("jTextField9");
+        onlyshowitems_row6_checkbox.setText("Sale items");
 
-        jCheckBox12.setText("Items listed as lots");
-
-        jCheckBox13.setText("Sale items");
-
-        jCheckBox14.setText("Best offer");
+        onlyshowitems_row7_checkbox.setText("Best offer");
 
         jLabel14.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel14.setText("Shipping Options");
 
-        jCheckBox15.setText("Free Shipping");
+        shippingoptions_row1_checkbox.setText("Free Shipping");
 
-        jCheckBox16.setText("Local pickup available");
+        shippingoptions_row2_checkbox.setText("Local pickup available");
 
-        jCheckBox17.setText("Only show items within");
-        jCheckBox17.addActionListener(new java.awt.event.ActionListener() {
+        location_row1_checkbox.setText("Only show items within");
+        location_row1_checkbox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                location_row1_checkboxItemStateChanged(evt);
+            }
+        });
+        location_row1_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox17ActionPerformed(evt);
+                location_row1_checkboxActionPerformed(evt);
             }
         });
 
         jLabel15.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel15.setText("Location Options");
 
-        location_first_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10 miles", "25 miles", "50 miles", "75 miles", "100 miles", "150 miles", "200 miles", "250 miles", "500 miles", "750 miles", "1000 miles", "1500 miles", "2000 miles" }));
+        location_row1_field1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10 miles", "25 miles", "50 miles", "75 miles", "100 miles", "150 miles", "200 miles", "250 miles", "500 miles", "750 miles", "1000 miles", "1500 miles", "2000 miles" }));
 
         jLabel16.setText("of ZIP code");
 
-        jTextField6.setText("jTextField6");
+        location_row2_checkbox.setText("Only show items within");
+        location_row2_checkbox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                location_row2_checkboxItemStateChanged(evt);
+            }
+        });
 
-        jCheckBox18.setText("Only show items within");
+        location_row2_field1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
 
-        location_second_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
+        location_row3_checkbox.setText("Only show items that ship to");
+        location_row3_checkbox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                location_row3_checkboxItemStateChanged(evt);
+            }
+        });
 
-        jCheckBox19.setText("Only show items that ship to");
-
-        location_third_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
+        location_row3_field1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel17.setText("Seller Options");
 
-        jCheckBox21.setText("Only show items from sellers with eBay Stores");
+        selleroptions_checkbox.setText("Only show items from sellers with eBay Stores");
 
         jLabel18.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel18.setText("Currency");
@@ -511,61 +544,66 @@ public class EditFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox21)
+                    .addComponent(selleroptions_checkbox)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jCheckBox19)
+                        .addComponent(location_row3_checkbox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(location_third_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(location_row3_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jCheckBox18)
+                        .addComponent(location_row2_checkbox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(location_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckBox16)
-                    .addComponent(jCheckBox14)
-                    .addComponent(jCheckBox13)
-                    .addComponent(jCheckBox12)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(numberOfBidsCheckbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numberOfBidsField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numberOfBidsField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(listingsCheckbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(listings_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(listings_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(location_row2_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(shippingoptions_row2_checkbox)
+                    .addComponent(onlyshowitems_row7_checkbox)
+                    .addComponent(onlyshowitems_row6_checkbox)
+                    .addComponent(onlyshowitems_row5_checkbox)
                     .addComponent(jLabel11)
-                    .addComponent(jCheckBox8)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(numberOfItemListingsCheckbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numberOfItemListingsField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numberOfItemListingsField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(onlyshowitems_row1_checkbox)
                     .addComponent(jLabel14)
-                    .addComponent(jCheckBox15)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jCheckBox17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(location_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(shippingoptions_row1_checkbox)
                     .addComponent(jLabel15)
                     .addComponent(jLabel17)
                     .addComponent(jLabel18)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(currency_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(405, Short.MAX_VALUE))
+                        .addComponent(currency_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(onlyshowitems_row4_checkbox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(onlyshowitems_row4_field1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(location_row1_checkbox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(location_row1_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(location_row1_field2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(onlyshowitems_row4_field2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(onlyshowitems_row3_checkbox)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(onlyshowitems_row3_field1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel12)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(onlyshowitems_row3_field2))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(onlyshowitems_row2_checkbox)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(onlyshowitems_row2_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(onlyshowitems_row2_field2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,57 +611,57 @@ public class EditFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox8)
+                .addComponent(onlyshowitems_row1_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(listingsCheckbox)
+                    .addComponent(onlyshowitems_row2_checkbox)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(listings_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(listings_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(onlyshowitems_row2_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(onlyshowitems_row2_field2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numberOfBidsCheckbox)
-                    .addComponent(numberOfBidsField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(onlyshowitems_row3_checkbox)
+                    .addComponent(onlyshowitems_row3_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(numberOfBidsField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(onlyshowitems_row3_field2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numberOfItemListingsCheckbox)
+                    .addComponent(onlyshowitems_row4_checkbox)
                     .addComponent(jLabel13)
-                    .addComponent(numberOfItemListingsField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numberOfItemListingsField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(onlyshowitems_row4_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(onlyshowitems_row4_field2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox12)
+                .addComponent(onlyshowitems_row5_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox13)
+                .addComponent(onlyshowitems_row6_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox14)
+                .addComponent(onlyshowitems_row7_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox15)
+                .addComponent(shippingoptions_row1_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox16)
+                .addComponent(shippingoptions_row2_checkbox)
                 .addGap(11, 11, 11)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox17)
-                    .addComponent(location_first_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(location_row1_checkbox)
+                    .addComponent(location_row1_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(location_row1_field2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox18)
-                    .addComponent(location_second_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(location_row2_checkbox)
+                    .addComponent(location_row2_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox19)
-                    .addComponent(location_third_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(location_row3_checkbox)
+                    .addComponent(location_row3_field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox21)
+                .addComponent(selleroptions_checkbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -659,7 +697,7 @@ public class EditFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(saveButton)
                 .addContainerGap())
@@ -676,33 +714,33 @@ public class EditFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_keywords_specfier_comboboxActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void searchincluding_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchincluding_row1_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_searchincluding_row1_checkboxActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void searchincluding_row2_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchincluding_row2_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_searchincluding_row2_checkboxActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void searchincluding_row3_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchincluding_row3_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_searchincluding_row3_checkboxActionPerformed
 
     private void priceConstraintsCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceConstraintsCheckboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_priceConstraintsCheckboxActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void buyingformats_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyingformats_row1_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_buyingformats_row1_checkboxActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void buyingformats_row2_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyingformats_row2_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_buyingformats_row2_checkboxActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void buyingformats_row3_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyingformats_row3_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_buyingformats_row3_checkboxActionPerformed
 
     private void priceConstraintsField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceConstraintsField1ActionPerformed
         // TODO add your handling code here:
@@ -717,41 +755,73 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchPatternNameActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO save data here
         SaveFieldData(searchPatternName, data, "name");
         SaveFieldData(keywords, data, "keywords");
+        SaveFieldData(keywords_specfier_combobox, data, "keywords_specfier_combobox");
+        SaveFieldData(excludeKeywordsTextfield, data, "excludeKeywordsTextfield");
+        SaveFieldData(searchincluding_row1_checkbox, data, "searchincluding_row1_checkbox");
+        SaveFieldData(searchincluding_row2_checkbox, data, "searchincluding_row2_checkbox");
+        SaveFieldData(searchincluding_row3_checkbox, data, "searchincluding_row3_checkbox");
         SaveFieldData(priceConstraintsCheckbox, data, "priceConstraintsCheckbox");
         SaveFieldData(this.priceConstraintsField1, data, "priceConstraintsField1");
         SaveFieldData(this.priceConstraintsField2, data, "priceConstraintsField2");
+        SaveFieldData(buyingformats_row1_checkbox, data, "buyingformats_row1_checkbox");
+        SaveFieldData(buyingformats_row2_checkbox, data, "buyingformats_row2_checkbox");
+        SaveFieldData(buyingformats_row3_checkbox, data, "buyingformats_row3_checkbox");
+        SaveFieldData(item_condition_combobox, data, "item_condition_combobox");
+        SaveFieldData(onlyshowitems_row1_checkbox, data, "onlyshowitems_row1_checkbox");
+        SaveFieldData(onlyshowitems_row2_checkbox, data, "onlyshowitems_row2_checkbox");
+        SaveFieldData(onlyshowitems_row2_field1, data, "onlyshowitems_row2_field1");
+        SaveFieldData(onlyshowitems_row2_field2, data, "onlyshowitems_row2_field2");
+        SaveFieldData(onlyshowitems_row3_checkbox, data, "onlyshowitems_row3_checkbox");
+        SaveFieldData(onlyshowitems_row3_field1, data, "onlyshowitems_row3_field1");
+        SaveFieldData(onlyshowitems_row3_field2, data, "onlyshowitems_row3_field2");
+        SaveFieldData(onlyshowitems_row4_checkbox, data, "onlyshowitems_row4_checkbox");
+        SaveFieldData(onlyshowitems_row4_field1, data, "onlyshowitems_row4_field1");
+        SaveFieldData(onlyshowitems_row4_field2, data, "onlyshowitems_row4_field2");
+        SaveFieldData(onlyshowitems_row5_checkbox, data, "onlyshowitems_row5_checkbox");
+        SaveFieldData(onlyshowitems_row6_checkbox, data, "onlyshowitems_row6_checkbox");
+        SaveFieldData(onlyshowitems_row7_checkbox, data, "onlyshowitems_row7_checkbox");
+        SaveFieldData(shippingoptions_row1_checkbox, data, "shippingoptions_row1_checkbox");
+        SaveFieldData(shippingoptions_row2_checkbox, data, "shippingoptions_row2_checkbox");
+        SaveFieldData(location_row1_checkbox, data, "location_row1_checkbox");
+        SaveFieldData(location_row1_field1, data, "location_row1_field1");
+        SaveFieldData(location_row1_field2, data, "location_row1_field2");
+        SaveFieldData(location_row2_checkbox, data, "location_row2_checkbox");
+        SaveFieldData(location_row2_field1, data, "location_row2_field1");
+        SaveFieldData(location_row3_checkbox, data, "location_row3_checkbox");
+        SaveFieldData(location_row3_field1, data, "location_row3_field1");
+        SaveFieldData(selleroptions_checkbox, data, "selleroptions_checkbox");
+        SaveFieldData(currency_combobox, data, "currency_combobox");
         //data.put("name", this.searchPatternName.getText());
         //data.put("keywords", this.keywords.getText());
         if(this.serializeDataRunnable != null)
             this.serializeDataRunnable.run();
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+    private void onlyshowitems_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row1_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
+    }//GEN-LAST:event_onlyshowitems_row1_checkboxActionPerformed
 
-    private void listingsCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listingsCheckboxActionPerformed
+    private void onlyshowitems_row2_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row2_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listingsCheckboxActionPerformed
+    }//GEN-LAST:event_onlyshowitems_row2_checkboxActionPerformed
 
-    private void listings_first_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listings_first_comboboxActionPerformed
+    private void onlyshowitems_row2_field1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row2_field1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listings_first_comboboxActionPerformed
+    }//GEN-LAST:event_onlyshowitems_row2_field1ActionPerformed
 
-    private void numberOfBidsCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfBidsCheckboxActionPerformed
+    private void onlyshowitems_row3_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row3_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numberOfBidsCheckboxActionPerformed
+    }//GEN-LAST:event_onlyshowitems_row3_checkboxActionPerformed
 
-    private void numberOfItemListingsCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfItemListingsCheckboxActionPerformed
+    private void onlyshowitems_row4_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row4_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numberOfItemListingsCheckboxActionPerformed
+    }//GEN-LAST:event_onlyshowitems_row4_checkboxActionPerformed
 
-    private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
+    private void location_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_location_row1_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox17ActionPerformed
+    }//GEN-LAST:event_location_row1_checkboxActionPerformed
 
     private void currency_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currency_comboboxActionPerformed
         // TODO add your handling code here:
@@ -769,41 +839,73 @@ public class EditFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_priceConstraintsCheckboxItemStateChanged
 
-    private void listingsCheckboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listingsCheckboxItemStateChanged
+    private void onlyshowitems_row2_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_onlyshowitems_row2_checkboxItemStateChanged
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
-            this.listings_first_combobox.setEnabled(true);
-            this.listings_second_combobox.setEnabled(true);
+            this.onlyshowitems_row2_field1.setEnabled(true);
+            this.onlyshowitems_row2_field2.setEnabled(true);
         } else {
             // disable other 2 components
-            this.listings_first_combobox.setEnabled(false);
-            this.listings_second_combobox.setEnabled(false);
+            this.onlyshowitems_row2_field1.setEnabled(false);
+            this.onlyshowitems_row2_field2.setEnabled(false);
         }
-    }//GEN-LAST:event_listingsCheckboxItemStateChanged
+    }//GEN-LAST:event_onlyshowitems_row2_checkboxItemStateChanged
 
-    private void numberOfBidsCheckboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_numberOfBidsCheckboxItemStateChanged
+    private void onlyshowitems_row3_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_onlyshowitems_row3_checkboxItemStateChanged
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
-            this.numberOfBidsField1.setEnabled(true);
-            this.numberOfBidsField2.setEnabled(true);
+            this.onlyshowitems_row3_field1.setEnabled(true);
+            this.onlyshowitems_row3_field2.setEnabled(true);
         } else {
             // disable other 2 components
-            this.numberOfBidsField1.setEnabled(false);
-            this.numberOfBidsField2.setEnabled(false);
+            this.onlyshowitems_row3_field1.setEnabled(false);
+            this.onlyshowitems_row3_field2.setEnabled(false);
         }
-    }//GEN-LAST:event_numberOfBidsCheckboxItemStateChanged
+    }//GEN-LAST:event_onlyshowitems_row3_checkboxItemStateChanged
 
-    private void numberOfItemListingsCheckboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_numberOfItemListingsCheckboxItemStateChanged
+    private void onlyshowitems_row4_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_onlyshowitems_row4_checkboxItemStateChanged
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
-            this.numberOfItemListingsField1.setEnabled(true);
-            this.numberOfItemListingsField2.setEnabled(true);
+            this.onlyshowitems_row4_field1.setEnabled(true);
+            this.onlyshowitems_row4_field2.setEnabled(true);
         } else {
             // disable other 2 components
-            this.numberOfItemListingsField1.setEnabled(false);
-            this.numberOfItemListingsField2.setEnabled(false);
+            this.onlyshowitems_row4_field1.setEnabled(false);
+            this.onlyshowitems_row4_field2.setEnabled(false);
         }
-    }//GEN-LAST:event_numberOfItemListingsCheckboxItemStateChanged
+    }//GEN-LAST:event_onlyshowitems_row4_checkboxItemStateChanged
+
+    private void location_row1_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_location_row1_checkboxItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            // enable other 2 components
+            this.location_row1_field1.setEnabled(true);
+            this.location_row1_field2.setEnabled(true);
+        } else {
+            // disable other 2 components
+            this.location_row1_field1.setEnabled(false);
+            this.location_row1_field2.setEnabled(false);
+        }
+    }//GEN-LAST:event_location_row1_checkboxItemStateChanged
+
+    private void location_row2_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_location_row2_checkboxItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            // enable other 2 components
+            this.location_row2_field1.setEnabled(true);
+        } else {
+            // disable other 2 components
+            this.location_row2_field1.setEnabled(false);
+        }
+    }//GEN-LAST:event_location_row2_checkboxItemStateChanged
+
+    private void location_row3_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_location_row3_checkboxItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            // enable other 2 components
+            this.location_row3_field1.setEnabled(true);
+        } else {
+            // disable other 2 components
+            this.location_row3_field1.setEnabled(false);
+        }
+    }//GEN-LAST:event_location_row3_checkboxItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -852,25 +954,14 @@ public class EditFrame extends javax.swing.JFrame {
     private JFrame homeWindow = null;
     private HashMap<String, String> data = new HashMap<String, String>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox buyingformats_row1_checkbox;
+    private javax.swing.JCheckBox buyingformats_row2_checkbox;
+    private javax.swing.JCheckBox buyingformats_row3_checkbox;
     private javax.swing.JComboBox categories_combobox;
     private javax.swing.JComboBox currency_combobox;
+    private javax.swing.JLabel excludeKeywordsLabel;
+    private javax.swing.JTextField excludeKeywordsTextfield;
     private javax.swing.JComboBox item_condition_combobox;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox21;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -882,7 +973,6 @@ public class EditFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -893,27 +983,39 @@ public class EditFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField keywords;
     private javax.swing.JComboBox keywords_specfier_combobox;
-    private javax.swing.JCheckBox listingsCheckbox;
-    private javax.swing.JComboBox listings_first_combobox;
-    private javax.swing.JComboBox listings_second_combobox;
-    private javax.swing.JComboBox location_first_combobox;
-    private javax.swing.JComboBox location_second_combobox;
-    private javax.swing.JComboBox location_third_combobox;
-    private javax.swing.JCheckBox numberOfBidsCheckbox;
-    private javax.swing.JTextField numberOfBidsField1;
-    private javax.swing.JTextField numberOfBidsField2;
-    private javax.swing.JCheckBox numberOfItemListingsCheckbox;
-    private javax.swing.JTextField numberOfItemListingsField1;
-    private javax.swing.JTextField numberOfItemListingsField2;
+    private javax.swing.JCheckBox location_row1_checkbox;
+    private javax.swing.JComboBox location_row1_field1;
+    private javax.swing.JTextField location_row1_field2;
+    private javax.swing.JCheckBox location_row2_checkbox;
+    private javax.swing.JComboBox location_row2_field1;
+    private javax.swing.JCheckBox location_row3_checkbox;
+    private javax.swing.JComboBox location_row3_field1;
+    private javax.swing.JCheckBox onlyshowitems_row1_checkbox;
+    private javax.swing.JCheckBox onlyshowitems_row2_checkbox;
+    private javax.swing.JComboBox onlyshowitems_row2_field1;
+    private javax.swing.JComboBox onlyshowitems_row2_field2;
+    private javax.swing.JCheckBox onlyshowitems_row3_checkbox;
+    private javax.swing.JTextField onlyshowitems_row3_field1;
+    private javax.swing.JTextField onlyshowitems_row3_field2;
+    private javax.swing.JCheckBox onlyshowitems_row4_checkbox;
+    private javax.swing.JTextField onlyshowitems_row4_field1;
+    private javax.swing.JTextField onlyshowitems_row4_field2;
+    private javax.swing.JCheckBox onlyshowitems_row5_checkbox;
+    private javax.swing.JCheckBox onlyshowitems_row6_checkbox;
+    private javax.swing.JCheckBox onlyshowitems_row7_checkbox;
     private javax.swing.JCheckBox priceConstraintsCheckbox;
     private javax.swing.JTextField priceConstraintsField1;
     private javax.swing.JTextField priceConstraintsField2;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField searchPatternName;
+    private javax.swing.JCheckBox searchincluding_row1_checkbox;
+    private javax.swing.JCheckBox searchincluding_row2_checkbox;
+    private javax.swing.JCheckBox searchincluding_row3_checkbox;
+    private javax.swing.JCheckBox selleroptions_checkbox;
+    private javax.swing.JCheckBox shippingoptions_row1_checkbox;
+    private javax.swing.JCheckBox shippingoptions_row2_checkbox;
     private javax.swing.JComboBox sort_results_combobox;
     // End of variables declaration//GEN-END:variables
 }
