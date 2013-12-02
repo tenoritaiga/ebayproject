@@ -18,7 +18,7 @@ import java.util.HashMap;
  * @author nbevacqu
  */
 public class Helpers {
-    public synchronized static void serializeListOfHashMaps(File file, ArrayList<HashMap<String, String>> fileObj) {
+    public synchronized static boolean serializeListOfHashMaps(File file, ArrayList<HashMap<String, String>> fileObj) {
         try {
             System.out.println(String.format("serializing list of maps: %d maps", fileObj.size()));
             FileOutputStream f = new FileOutputStream(file);
@@ -26,9 +26,11 @@ public class Helpers {
             s.writeObject(fileObj);
             s.flush();
             s.close();
-            System.out.println("saved search patterns");
+            System.out.println("saved list of maps");
+            return true;
         } catch (Exception ex) {
             System.err.println("could not save changes");
+            return false;
         }
     }
     

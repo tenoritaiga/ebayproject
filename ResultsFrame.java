@@ -2,11 +2,15 @@ package ebayproject;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionEvent;
@@ -32,10 +36,105 @@ public class ResultsFrame extends javax.swing.JFrame {
     
     private ExecutorService threadPool = Executors.newCachedThreadPool();
     
+    public ResultsFrame(final JFrame homeWindow, final File savedSearchResultsFile) {
+        initComponents();
+        this.homeWindow = homeWindow;
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        if(homeWindow != null)
+            homeWindow.setVisible(false);
+        
+        this.saveResultsButton.setEnabled(false);
+        this.statusLabel.setText("trying to load saved search results from "+savedSearchResultsFile);
+        this.statusLabel.repaint();
+        this.statusLabel.updateUI();
+        this.jTable1.setEnabled(false);
+        this.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                threadPool.shutdown();
+                if(homeWindow != null)
+                    homeWindow.setVisible(true);
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                
+            }
+        });
+        jList1.setListData(new String[0]);
+        
+        // try and load data here
+        final DefaultTableModel dtm = (DefaultTableModel) this.jTable1.getModel();
+        
+        threadPool.submit(new Runnable() {
+            public void run() {
+                try {
+                    FileInputStream f = new FileInputStream(savedSearchResultsFile);
+                    ObjectInputStream s = new ObjectInputStream(f);
+                    ArrayList<HashMap<String, String>> data = (ArrayList<HashMap<String, String>>) s.readObject();
+                    s.close();
+                    
+                    final AtomicInteger numLeft = new AtomicInteger(data.size());
+                    for(HashMap<String, String> rowResult : data) {
+                        final Object[] objArr = new Object[3];
+                        objArr[0] = rowResult.get("name");
+                        objArr[1] = rowResult.get("image");
+                        objArr[2] = rowResult.get("price");
+                        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                dtm.insertRow(jTable1.getRowCount(),objArr);
+                                if(numLeft.decrementAndGet() == 0)
+                                {
+                                    statusLabel.setText("finished loading saved search results");
+                                    statusLabel.repaint();
+                                    statusLabel.updateUI();
+                                    jTable1.setEnabled(true);
+                                }
+                            }
+                        });
+                    }
+                } catch (Exception ex) {
+                    String errString = "Could not load saved search results from file";
+                    System.err.println(errString);
+                    statusLabel.setText(errString);
+                    statusLabel.repaint();
+                    statusLabel.updateUI();
+                }
+            }
+        });
+    }
+    
     public ResultsFrame(final JFrame homeWindow, ArrayList<HashMap<String, String>> data) {
         initComponents();
         this.homeWindow = homeWindow;
         this.searchData = data;
+        this.saveResultsButton.setEnabled(false);
         if(data == null)
             System.err.println("data null in results frame");
         if(homeWindow != null)
@@ -87,7 +186,6 @@ public class ResultsFrame extends javax.swing.JFrame {
                 statusLabel.setText("performing search now");
             }
         });
-        
         
         final AtomicInteger numSearchesRemaining = new AtomicInteger(data.size());
         final String[] names = new String[data.size()];
@@ -150,8 +248,10 @@ public class ResultsFrame extends javax.swing.JFrame {
                                     @Override
                                     public void run() {
                                         dtm.insertRow(jTable1.getRowCount(),objArr);
-                                        if(numLeft.decrementAndGet() == 0)
+                                        if(numLeft.decrementAndGet() == 0) {
                                             statusLabel.setText("");
+                                            saveResultsButton.setEnabled(true);
+                                        }
                                     }
                                 });
                             }
@@ -178,6 +278,7 @@ public class ResultsFrame extends javax.swing.JFrame {
         statusLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        saveResultsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,20 +309,32 @@ public class ResultsFrame extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(1).setCellRenderer(new ebayproject.ImageRenderer());
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(1).setCellRenderer(new ebayproject.ImageRenderer());
+        }
+
+        saveResultsButton.setText("Save Results");
+        saveResultsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveResultsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(saveResultsButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE))
-                    .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(statusLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -231,12 +344,73 @@ public class ResultsFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addComponent(saveResultsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+                .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveResultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveResultsButtonActionPerformed
+        int selectedIndex = -1;
+
+        synchronized(jList1) {
+            selectedIndex = jList1.getSelectedIndex();
+        }
+        
+        if(selectedIndex == -1) {
+            statusLabel.setText("cannot save results if no search pattern is selected");
+            statusLabel.repaint();
+            statusLabel.updateUI();
+            return;
+        }
+
+        statusLabel.setText("select file save location");
+        statusLabel.repaint();
+        statusLabel.updateUI();
+        
+        // display save dialog box here
+        JFileChooser fc = new JFileChooser();
+        int retValue = fc.showSaveDialog(this);
+        File saveFile = null;
+        
+        if(retValue == JFileChooser.APPROVE_OPTION) {
+            saveFile = fc.getSelectedFile();
+        }
+        
+        if(saveFile == null) {
+            statusLabel.setText("Error: can not retrieve file to save results to");
+            System.err.println("can not retrieve file to save results to");
+            statusLabel.repaint();
+            statusLabel.updateUI();
+            return;
+        }
+        
+        ArrayList<HashMap<String,String>> listOfResults = null;
+
+        synchronized(searchResults) {
+            listOfResults = searchResults.get(selectedIndex);
+        }
+        
+        boolean b;
+        synchronized(listOfResults) {
+            b = Helpers.serializeListOfHashMaps(saveFile, listOfResults);
+        }
+        
+        if(b) {
+            statusLabel.setText("Results successfully saved to "+saveFile);
+            System.err.println("Results successfully saved to "+saveFile);
+            statusLabel.repaint();
+            statusLabel.updateUI();
+        } else {
+            statusLabel.setText("Error: could not save results to "+saveFile);
+            System.err.println("Error: could not save to "+saveFile);
+            statusLabel.repaint();
+            statusLabel.updateUI();
+        }
+    }//GEN-LAST:event_saveResultsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,9 +456,9 @@ public class ResultsFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton saveResultsButton;
     private javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
 }

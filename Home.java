@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -133,6 +134,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         openSavedSearchResultButton.setText("Open Saved Search Result");
+        openSavedSearchResultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openSavedSearchResultButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Ebay Saved Searches");
@@ -284,6 +290,18 @@ public class Home extends javax.swing.JFrame {
             javax.swing.SwingUtilities.invokeLater(checkBoxSelectedRunnable);
         }
     }//GEN-LAST:event_selectAllButtonActionPerformed
+
+    private void openSavedSearchResultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openSavedSearchResultButtonActionPerformed
+        JFileChooser fc = new JFileChooser();
+        int retValue = fc.showOpenDialog(this);
+        if(retValue == JFileChooser.APPROVE_OPTION)
+        {
+            File savedSearchResultsFile = fc.getSelectedFile();
+            ResultsFrame rf = new ResultsFrame(this, savedSearchResultsFile);
+            rf.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_openSavedSearchResultButtonActionPerformed
 
     /**
      * @param args the command line arguments
