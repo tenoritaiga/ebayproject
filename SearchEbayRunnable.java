@@ -9,12 +9,15 @@ import java.util.HashMap;
 
 import com.ebay.services.client.ClientConfig;
 import com.ebay.services.client.FindingServiceClientFactory;
+import com.ebay.services.finding.Amount;
 import com.ebay.services.finding.FindItemsAdvancedRequest;
 import com.ebay.services.finding.FindItemsAdvancedResponse;
 import com.ebay.services.finding.FindingServicePortType;
 import com.ebay.services.finding.ItemFilter;
 import com.ebay.services.finding.ItemFilterType;
+import com.ebay.services.finding.ListingInfo;
 import com.ebay.services.finding.SearchItem;
+import com.ebay.services.finding.SellingStatus;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JLabel;
@@ -77,6 +80,7 @@ public class SearchEbayRunnable implements Runnable {
             itemFilter.add(objFilter2);
             itemFilter.add(objFilter3);
 
+            System.out.println("making request: "+request);
             FindItemsAdvancedResponse result = serviceClient.findItemsAdvanced(request);
 
             System.out.println("Ack = "+result.getAck());
@@ -90,7 +94,13 @@ public class SearchEbayRunnable implements Runnable {
                 hm.put("name", item.getTitle());
                 //hm.put("name","name");
                 hm.put("image", item.getGalleryURL());
-                hm.put("price", "Unknown");
+                System.out.println(item);
+                ListingInfo listing_info = item.getListingInfo();
+                SellingStatus selling_status = item.getSellingStatus();
+                Amount amount = selling_status.getConvertedCurrentPrice();
+                //System.out.println("currencyID: "+amount.getCurrencyId());
+                //System.out.println("value: "+amount.getValue());
+                hm.put("price", ""+amount.getValue()+" "+amount.getCurrencyId());
                 hm.put("itemId", item.getItemId());
                 listOfResults_temp.add(hm);
             }
