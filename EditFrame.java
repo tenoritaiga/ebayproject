@@ -484,6 +484,7 @@ public class EditFrame extends javax.swing.JFrame {
         onlyshowitems_row5_checkbox.setEnabled(false);
 
         onlyshowitems_row6_checkbox.setText("Sale items");
+        onlyshowitems_row6_checkbox.setEnabled(false);
 
         onlyshowitems_row7_checkbox.setText("Best offer");
 
