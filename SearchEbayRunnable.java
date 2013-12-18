@@ -75,6 +75,8 @@ public class SearchEbayRunnable implements Runnable {
             request.setPaginationInput(pi);
             
             List<ItemFilter> itemFilter = request.getItemFilter();
+            itemFilter.add(addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true"));
+            
             //Check here to see which type was selected; we allow, in order:
             /*
             END_TIME_SOONEST
@@ -89,7 +91,6 @@ public class SearchEbayRunnable implements Runnable {
                         
             //ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             //ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
-            //ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
             //ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
             
             String conditionString = searchPatternData.get("item_condition_combobox").trim();
@@ -106,7 +107,6 @@ public class SearchEbayRunnable implements Runnable {
                 // if unspecified then dont add item filter
             }
             
-
             List<SearchItem> items = new ArrayList<SearchItem>();
             
             System.out.println("making request ");
