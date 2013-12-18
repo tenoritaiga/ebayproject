@@ -85,9 +85,11 @@ public class SearchEbayRunnable implements Runnable {
             //ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
             
             //If "Best offers" is checked, only show items with best offer
-            String bestOfferEnabled = searchPatternData.get("onlyshowitems_row7_checkbox");
-            if(Boolean.parseBoolean(bestOfferEnabled))
-                addItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true");
+            try {
+                String bestOfferEnabled = searchPatternData.get("onlyshowitems_row7_checkbox");
+                if(Boolean.parseBoolean(bestOfferEnabled))
+                    addItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true");
+            } catch (Exception ex) {}
             
             String conditionString = searchPatternData.get("item_condition_combobox").trim();
             //System.out.println("item condition string: "+conditionString);
