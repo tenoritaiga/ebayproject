@@ -77,17 +77,7 @@ public class SearchEbayRunnable implements Runnable {
             List<ItemFilter> itemFilter = request.getItemFilter();
             itemFilter.add(addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true"));
             
-            //Check here to see which type was selected; we allow, in order:
-            /*
-            END_TIME_SOONEST
-            START_TIME_NEWEST
-            PRICE_PLUS_SHIPPING_LOWEST
-            PRICE_PLUS_SHIPPING_HIGHEST
-            CURRENT_PRICE_HIGHEST
-            DISTANCE_NEAREST
-            BEST_MATCH
-            */
-            request.setSortOrder(SortOrderType.BEST_MATCH);
+            request.setSortOrder(getSortOrderFromSearchData(searchPatternData));
                         
             //ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             //ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
@@ -185,5 +175,33 @@ public class SearchEbayRunnable implements Runnable {
         } catch (Exception ex) {}
         
         return true;
+    }
+
+    private SortOrderType getSortOrderFromSearchData(HashMap<String, String> searchPatternData) {
+        /*
+         * Time: Ending Soonest
+         * Time: Newly Listed
+         * Price + Shipping: Lowest First
+         * Price + Shipping: Highest First
+        Price: Highest First
+         * Distance: Nearest First
+         * Best Match
+         */
+        
+        SortOrderType[] orders = new SortOrderType[] {
+            SortOrderType.END_TIME_SOONEST, 
+            SortOrderType.START_TIME_NEWEST,
+            SortOrderType.PRICE_PLUS_SHIPPING_LOWEST, 
+            SortOrderType.PRICE_PLUS_SHIPPING_HIGHEST,
+            SortOrderType.CURRENT_PRICE_HIGHEST, 
+            SortOrderType.DISTANCE_NEAREST, 
+            SortOrderType.BEST_MATCH
+        };
+        try {
+            int sortOrder = Integer.parseInt(searchPatternData.get("sort_results_combobox"));
+            return orders[sortOrder];
+        } catch (Exception ex) {}
+        
+        return SortOrderType.BEST_MATCH;
     }
 }

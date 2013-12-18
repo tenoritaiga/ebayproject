@@ -74,6 +74,7 @@ public class EditFrame extends javax.swing.JFrame {
         
         RestoreFieldData(searchPatternName, data, "name");
         RestoreFieldData(keywords, data, "keywords");
+        RestoreFieldData(sort_results_combobox, data, "sort_results_combobox");
         RestoreFieldData(keywords_specfier_combobox, data, "keywords_specfier_combobox");
         RestoreFieldData(excludeKeywordsTextfield, data, "excludeKeywordsTextfield");
         RestoreFieldData(searchincluding_row1_checkbox, data, "searchincluding_row1_checkbox");
@@ -800,6 +801,7 @@ public class EditFrame extends javax.swing.JFrame {
         SaveFieldData(location_row3_field1, data, "location_row3_field1");
         SaveFieldData(selleroptions_checkbox, data, "selleroptions_checkbox");
         SaveFieldData(currency_combobox, data, "currency_combobox");
+        SaveFieldData(sort_results_combobox, data, "sort_results_combobox");
         //data.put("name", this.searchPatternName.getText());
         //data.put("keywords", this.keywords.getText());
         if(this.serializeDataRunnable != null)
