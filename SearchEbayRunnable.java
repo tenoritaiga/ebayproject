@@ -79,6 +79,7 @@ public class SearchEbayRunnable implements Runnable {
             ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
             
             
+            
             List<ItemFilter> itemFilter = request.getItemFilter();
             itemFilter.add(objFilter1);
             itemFilter.add(objFilter2);

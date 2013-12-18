@@ -196,6 +196,7 @@ public class EditFrame extends javax.swing.JFrame {
         jLabel1.setText("Keywords:");
 
         keywords_specfier_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All words, any order", "Any words, any order", "Exact words, exact order", "Exact words, any order" }));
+        keywords_specfier_combobox.setEnabled(false);
         keywords_specfier_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keywords_specfier_comboboxActionPerformed(evt);
@@ -212,6 +213,7 @@ public class EditFrame extends javax.swing.JFrame {
         jLabel4.setText("Search Including");
 
         searchincluding_row1_checkbox.setText("Title and Description");
+        searchincluding_row1_checkbox.setEnabled(false);
         searchincluding_row1_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchincluding_row1_checkboxActionPerformed(evt);
@@ -219,6 +221,7 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         searchincluding_row2_checkbox.setText("Completed Listings");
+        searchincluding_row2_checkbox.setEnabled(false);
         searchincluding_row2_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchincluding_row2_checkboxActionPerformed(evt);
@@ -226,6 +229,7 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         searchincluding_row3_checkbox.setText("Sold Listings");
+        searchincluding_row3_checkbox.setEnabled(false);
         searchincluding_row3_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchincluding_row3_checkboxActionPerformed(evt);
@@ -233,6 +237,7 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         priceConstraintsCheckbox.setText("Only Show Items Prices From ");
+        priceConstraintsCheckbox.setEnabled(false);
         priceConstraintsCheckbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 priceConstraintsCheckboxItemStateChanged(evt);

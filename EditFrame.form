@@ -208,6 +208,7 @@
                     <StringItem index="3" value="Exact words, any order"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keywords_specfier_comboboxActionPerformed"/>
@@ -278,6 +279,7 @@
             <Component class="javax.swing.JCheckBox" name="searchincluding_row1_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Title and Description"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchincluding_row1_checkboxActionPerformed"/>
@@ -286,6 +288,7 @@
             <Component class="javax.swing.JCheckBox" name="searchincluding_row2_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Completed Listings"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchincluding_row2_checkboxActionPerformed"/>
@@ -294,6 +297,7 @@
             <Component class="javax.swing.JCheckBox" name="searchincluding_row3_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sold Listings"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchincluding_row3_checkboxActionPerformed"/>
@@ -302,6 +306,7 @@
             <Component class="javax.swing.JCheckBox" name="priceConstraintsCheckbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Only Show Items Prices From "/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="priceConstraintsCheckboxItemStateChanged"/>
