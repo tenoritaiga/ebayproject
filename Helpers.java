@@ -12,6 +12,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -48,19 +49,26 @@ public class Helpers {
         }
         
         ArrayList<String> expiredPreviouslySeenItems = new ArrayList<String>();
+        
+        long currentTime = new Date().getTime();
         for(String s : previouslySeenItems.keySet()) {
             Date d = previouslySeenItems.get(s);
             
             // if d is too old (> 60 days?)
             // add s to expiredPreviouslySeenItems
             // for now always expire seen items so we dont run out of them
-            expiredPreviouslySeenItems.add(s);
+            long elapsedTime = currentTime-d.getTime();
+            long daysPassed = TimeUnit.DAYS.convert(elapsedTime, TimeUnit.MILLISECONDS);
+            if(daysPassed >= 60) {
+                expiredPreviouslySeenItems.add(s);
+            }
         }
         
         for(String s : expiredPreviouslySeenItems) {
             previouslySeenItems.remove(s);
         }
         
+        expiredPreviouslySeenItems = null;
         
         ArrayList<HashMap<String, String>> itemsToRemove = new ArrayList<HashMap<String, String>>();
         for(HashMap<String, String> hm : results) {
@@ -77,7 +85,8 @@ public class Helpers {
         }
         
         results.removeAll(itemsToRemove);
-                
+        itemsToRemove = null;
+        
         try {
             System.out.println(String.format("serializing list of previously seen items"));
             FileOutputStream f = new FileOutputStream(file);
