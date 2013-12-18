@@ -19,6 +19,7 @@ import com.ebay.services.finding.ListingInfo;
 import com.ebay.services.finding.PaginationInput;
 import com.ebay.services.finding.SearchItem;
 import com.ebay.services.finding.SellingStatus;
+import com.ebay.services.finding.SortOrderType;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JLabel;
@@ -72,6 +73,18 @@ public class SearchEbayRunnable implements Runnable {
             pi.setEntriesPerPage(100);
             pi.setPageNumber(1);
             request.setPaginationInput(pi);
+            
+            //Check here to see which type was selected; we allow, in order:
+            /*
+            END_TIME_SOONEST
+            START_TIME_NEWEST
+            PRICE_PLUS_SHIPPING_LOWEST
+            PRICE_PLUS_SHIPPING_HIGHEST
+            CURRENT_PRICE_HIGHEST
+            DISTANCE_NEAREST
+            BEST_MATCH
+            */
+            request.setSortOrder(SortOrderType.BEST_MATCH);
             
             ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
