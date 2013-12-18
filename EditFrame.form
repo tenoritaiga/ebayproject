@@ -315,6 +315,7 @@
             <Component class="javax.swing.JCheckBox" name="buyingformats_row1_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Auction"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyingformats_row1_checkboxActionPerformed"/>
@@ -323,6 +324,7 @@
             <Component class="javax.swing.JCheckBox" name="buyingformats_row2_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buy It Now"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyingformats_row2_checkboxActionPerformed"/>
@@ -331,6 +333,7 @@
             <Component class="javax.swing.JCheckBox" name="buyingformats_row3_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Classifieds"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyingformats_row3_checkboxActionPerformed"/>

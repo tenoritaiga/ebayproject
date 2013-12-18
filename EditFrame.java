@@ -249,6 +249,7 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         buyingformats_row1_checkbox.setText("Auction");
+        buyingformats_row1_checkbox.setEnabled(false);
         buyingformats_row1_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buyingformats_row1_checkboxActionPerformed(evt);
@@ -256,6 +257,7 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         buyingformats_row2_checkbox.setText("Buy It Now");
+        buyingformats_row2_checkbox.setEnabled(false);
         buyingformats_row2_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buyingformats_row2_checkboxActionPerformed(evt);
@@ -263,6 +265,7 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         buyingformats_row3_checkbox.setText("Classifieds");
+        buyingformats_row3_checkbox.setEnabled(false);
         buyingformats_row3_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buyingformats_row3_checkboxActionPerformed(evt);

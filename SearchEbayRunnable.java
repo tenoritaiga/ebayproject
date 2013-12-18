@@ -73,17 +73,33 @@ public class SearchEbayRunnable implements Runnable {
             pi.setPageNumber(1);
             request.setPaginationInput(pi);
             
-            ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
-            ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
-            ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
-            ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
-            
-            
-            
             List<ItemFilter> itemFilter = request.getItemFilter();
-            itemFilter.add(objFilter1);
-            itemFilter.add(objFilter2);
-            itemFilter.add(objFilter3);
+            
+            //ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
+            //ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
+            //ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
+            //ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
+            
+            String conditionString = searchPatternData.get("item_condition_combobox").trim();
+            System.out.println("item condition string: "+conditionString);
+            if(conditionString.equals("0")) {
+                // New Items only
+                System.out.println("only new items");
+                itemFilter.add(addItemFilter(ItemFilterType.CONDITION, "1000"));
+            } else if(conditionString.equals("1")) {
+                // Used Items only
+                System.out.println("only used items");
+                itemFilter.add(addItemFilter(ItemFilterType.CONDITION, "3000"));
+            } else {
+                // if unspecified then dont add item filter
+            }
+            
+            //addItemFilter(ItemFilterType.CONDITION, 
+            
+            
+            //itemFilter.add(objFilter1);
+            //itemFilter.add(objFilter2);
+            //itemFilter.add(objFilter3);
 
             List<SearchItem> items = new ArrayList<SearchItem>();
             
