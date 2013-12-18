@@ -237,7 +237,6 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         priceConstraintsCheckbox.setText("Only Show Items Prices From ");
-        priceConstraintsCheckbox.setEnabled(false);
         priceConstraintsCheckbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 priceConstraintsCheckboxItemStateChanged(evt);

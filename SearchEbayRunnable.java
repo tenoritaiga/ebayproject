@@ -121,6 +121,10 @@ public class SearchEbayRunnable implements Runnable {
                 Amount amount = selling_status.getConvertedCurrentPrice();
                 //System.out.println("currencyID: "+amount.getCurrencyId());
                 //System.out.println("value: "+amount.getValue());
+                
+                if(!priceInValidRange(amount.getValue(), searchPatternData))
+                    continue;
+                
                 hm.put("price", ""+amount.getValue()+" "+amount.getCurrencyId());
                 hm.put("itemId", item.getItemId());
                 hm.put("url", item.getViewItemURL());
@@ -144,5 +148,20 @@ public class SearchEbayRunnable implements Runnable {
             }
         }
 
+    }
+
+    private boolean priceInValidRange(double value, HashMap<String, String> searchPatternData) {
+        try {
+            boolean checkboxEnabled = Boolean.parseBoolean(searchPatternData.get("priceConstraintsCheckbox"));
+            if(checkboxEnabled) {
+                double price1 = Double.parseDouble(searchPatternData.get("priceConstraintsField1"));
+                double price2 = Double.parseDouble(searchPatternData.get("priceConstraintsField1"));
+                
+                if(value < price1 || value > price2)
+                    return false;
+            }
+        } catch (Exception ex) {}
+        
+        return true;
     }
 }

@@ -306,7 +306,6 @@
             <Component class="javax.swing.JCheckBox" name="priceConstraintsCheckbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Only Show Items Prices From "/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="priceConstraintsCheckboxItemStateChanged"/>
