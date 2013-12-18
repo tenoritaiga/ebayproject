@@ -84,14 +84,14 @@ public class SearchEbayRunnable implements Runnable {
             //ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
             
             String conditionString = searchPatternData.get("item_condition_combobox").trim();
-            System.out.println("item condition string: "+conditionString);
+            //System.out.println("item condition string: "+conditionString);
             if(conditionString.equals("0")) {
                 // New Items only
-                System.out.println("only new items");
+                //System.out.println("only new items");
                 itemFilter.add(addItemFilter(ItemFilterType.CONDITION, "1000"));
             } else if(conditionString.equals("1")) {
                 // Used Items only
-                System.out.println("only used items");
+                //System.out.println("only used items");
                 itemFilter.add(addItemFilter(ItemFilterType.CONDITION, "3000"));
             } else {
                 // if unspecified then dont add item filter
@@ -102,7 +102,7 @@ public class SearchEbayRunnable implements Runnable {
             System.out.println("making request ");
             FindItemsAdvancedResponse result = serviceClient.findItemsAdvanced(request);
             System.out.println("Ack = "+result.getAck());
-            System.out.println("Found " + result.getSearchResult().getCount() + " items.");
+            //System.out.println("Found " + result.getSearchResult().getCount() + " items.");
             items.addAll(result.getSearchResult().getItem());
             int totalPages = result.getPaginationOutput().getTotalPages();
             System.out.println("total entries = "+result.getPaginationOutput().getTotalEntries());
@@ -113,8 +113,8 @@ public class SearchEbayRunnable implements Runnable {
                 result = serviceClient.findItemsAdvanced(request);
                 items.addAll(result.getSearchResult().getItem());
                 
-                System.out.println("Ack = "+result.getAck());
-                System.out.println("Found " + result.getSearchResult().getCount() + " items.");
+                //System.out.println("Ack = "+result.getAck());
+                //System.out.println("Found " + result.getSearchResult().getCount() + " items.");
                 
                 if(result.getSearchResult().getItem().isEmpty())
                     break;
