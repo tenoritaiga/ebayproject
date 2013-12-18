@@ -74,7 +74,9 @@ public class SearchEbayRunnable implements Runnable {
             pi.setPageNumber(1);
             request.setPaginationInput(pi);
             
+<<<<<<< HEAD
             List<ItemFilter> itemFilter = request.getItemFilter();
+=======
             //Check here to see which type was selected; we allow, in order:
             /*
             END_TIME_SOONEST
@@ -86,7 +88,13 @@ public class SearchEbayRunnable implements Runnable {
             BEST_MATCH
             */
             request.setSortOrder(SortOrderType.BEST_MATCH);
-                        
+            
+            ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
+            ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
+            ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
+            ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
+>>>>>>> 30aa091891b0c17898b72cfb053a21f62916889f
+            
             //ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             //ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
             //ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
@@ -106,6 +114,12 @@ public class SearchEbayRunnable implements Runnable {
                 // if unspecified then dont add item filter
             }
             
+            //addItemFilter(ItemFilterType.CONDITION, 
+            
+            
+            //itemFilter.add(objFilter1);
+            //itemFilter.add(objFilter2);
+            //itemFilter.add(objFilter3);
 
             List<SearchItem> items = new ArrayList<SearchItem>();
             
