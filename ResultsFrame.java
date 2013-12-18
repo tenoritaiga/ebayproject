@@ -1,15 +1,22 @@
 package ebayproject;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -30,12 +37,61 @@ public class ResultsFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    private List< HashMap<String, String> > currentlyDisplayedResults = null;
     private JFrame homeWindow;
     private ArrayList<HashMap<String, String>> searchData;
     private ArrayList<ArrayList<HashMap<String, String>>> searchResults = new ArrayList<ArrayList<HashMap<String, String>>>();
     
     private ExecutorService threadPool = Executors.newCachedThreadPool();
     
+    private MouseListener jtableMouseListener = new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if(me.getClickCount() >= 2) {
+                    int selectedRow = 0;
+                    synchronized(jTable1) {
+                        selectedRow = jTable1.getSelectedRow();
+                    }
+                    
+                    HashMap<String, String> hm;
+                    synchronized(currentlyDisplayedResults) {
+                        hm = currentlyDisplayedResults.get(selectedRow);
+                    }
+                    
+                    String url = (String) hm.get("url");
+                    try {
+                        URL url1 = new URL(url);
+                        // TODO: browser code here
+                        
+                    } catch (Exception ex) {
+                        statusLabel.setText("could not open url for item");
+                    }
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent me) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                
+            }
+        };
+    
+    // invoked when loading saved search results
     public ResultsFrame(final JFrame homeWindow, final File savedSearchResultsFile) {
         initComponents();
         this.homeWindow = homeWindow;
@@ -48,6 +104,8 @@ public class ResultsFrame extends javax.swing.JFrame {
         this.statusLabel.repaint();
         this.statusLabel.updateUI();
         this.jTable1.setEnabled(false);
+        
+        this.jTable1.addMouseListener(jtableMouseListener);
         this.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -100,6 +158,7 @@ public class ResultsFrame extends javax.swing.JFrame {
                     s.close();
                     
                     final AtomicInteger numLeft = new AtomicInteger(data.size());
+                    currentlyDisplayedResults = data;
                     for(HashMap<String, String> rowResult : data) {
                         final Object[] objArr = new Object[3];
                         objArr[0] = rowResult.get("name");
@@ -205,6 +264,8 @@ public class ResultsFrame extends javax.swing.JFrame {
             }
         });
         
+        jTable1.addMouseListener(jtableMouseListener);
+        
         jList1.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -238,6 +299,7 @@ public class ResultsFrame extends javax.swing.JFrame {
                         if(listOfResults.isEmpty())
                             statusLabel.setText("No results to display");
                         
+                        currentlyDisplayedResults = listOfResults;
                         for(HashMap<String, String> rowResult : listOfResults) {
                             synchronized(rowResult) {
                                 final Object[] objArr = new Object[3];
