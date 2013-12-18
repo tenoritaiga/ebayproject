@@ -66,14 +66,17 @@ public class SearchEbayRunnable implements Runnable {
                 searchPatternData.put("keywords", "test");
             }
             request.setKeywords(searchPatternData.get("keywords"));
+            
             //PaginationInput pi = new PaginationInput();
             //pi.setEntriesPerPage(2);
             //request.setPaginationInput(pi);
+            
             
             ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
             ItemFilter objFilter3 = addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true");
             ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
+            
             
             List<ItemFilter> itemFilter = request.getItemFilter();
             itemFilter.add(objFilter1);
@@ -86,7 +89,6 @@ public class SearchEbayRunnable implements Runnable {
             System.out.println("Ack = "+result.getAck());
             System.out.println("Found " + result.getSearchResult().getCount() + " items.");
             List<SearchItem> items = result.getSearchResult().getItem();
-            
             
             ArrayList<HashMap<String, String>> listOfResults_temp = new ArrayList<HashMap<String, String>>();
             for (SearchItem item : items) {
@@ -102,6 +104,7 @@ public class SearchEbayRunnable implements Runnable {
                 //System.out.println("value: "+amount.getValue());
                 hm.put("price", ""+amount.getValue()+" "+amount.getCurrencyId());
                 hm.put("itemId", item.getItemId());
+                hm.put("url", item.getViewItemURL());
                 listOfResults_temp.add(hm);
             }
             
