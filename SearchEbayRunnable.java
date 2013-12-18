@@ -16,6 +16,7 @@ import com.ebay.services.finding.FindingServicePortType;
 import com.ebay.services.finding.ItemFilter;
 import com.ebay.services.finding.ItemFilterType;
 import com.ebay.services.finding.ListingInfo;
+import com.ebay.services.finding.PaginationInput;
 import com.ebay.services.finding.SearchItem;
 import com.ebay.services.finding.SellingStatus;
 import java.util.List;
@@ -67,10 +68,10 @@ public class SearchEbayRunnable implements Runnable {
             }
             request.setKeywords(searchPatternData.get("keywords"));
             
-            //PaginationInput pi = new PaginationInput();
-            //pi.setEntriesPerPage(2);
-            //request.setPaginationInput(pi);
-            
+            PaginationInput pi = new PaginationInput();
+            pi.setEntriesPerPage(100);
+            pi.setPageNumber(1);
+            request.setPaginationInput(pi);
             
             ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
@@ -83,12 +84,29 @@ public class SearchEbayRunnable implements Runnable {
             itemFilter.add(objFilter2);
             itemFilter.add(objFilter3);
 
-            System.out.println("making request: "+request);
+            List<SearchItem> items = new ArrayList<SearchItem>();
+            
+            System.out.println("making request ");
             FindItemsAdvancedResponse result = serviceClient.findItemsAdvanced(request);
-
             System.out.println("Ack = "+result.getAck());
             System.out.println("Found " + result.getSearchResult().getCount() + " items.");
-            List<SearchItem> items = result.getSearchResult().getItem();
+            items.addAll(result.getSearchResult().getItem());
+            int totalPages = result.getPaginationOutput().getTotalPages();
+            System.out.println("total entries = "+result.getPaginationOutput().getTotalEntries());
+            
+            // repeat multiple times to get all entries
+            for(int i = 1; i < totalPages; i++) {
+                pi.setPageNumber(i);
+                result = serviceClient.findItemsAdvanced(request);
+                items.addAll(result.getSearchResult().getItem());
+                
+                System.out.println("Ack = "+result.getAck());
+                System.out.println("Found " + result.getSearchResult().getCount() + " items.");
+                
+                if(result.getSearchResult().getItem().isEmpty())
+                    break;
+            }
+            
             
             ArrayList<HashMap<String, String>> listOfResults_temp = new ArrayList<HashMap<String, String>>();
             for (SearchItem item : items) {
