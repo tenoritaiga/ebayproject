@@ -1,5 +1,6 @@
 package ebayproject;
 
+import java.awt.Desktop;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
@@ -8,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,9 +62,11 @@ public class ResultsFrame extends javax.swing.JFrame {
                     }
                     
                     String url = (String) hm.get("url");
+                    System.out.println(url);
                     try {
                         URL url1 = new URL(url);
-                        // TODO: browser code here
+                        Desktop d = Desktop.getDesktop();
+                        d.browse(new URI(url1.toString()));
                         
                     } catch (Exception ex) {
                         statusLabel.setText("could not open url for item");
