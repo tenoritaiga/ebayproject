@@ -215,6 +215,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="excludeKeywordsTextfield">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="excludeKeywordsLabel">
               <Properties>
@@ -686,6 +689,7 @@
             <Component class="javax.swing.JCheckBox" name="onlyshowitems_row5_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Items listed as lots"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="onlyshowitems_row6_checkbox">
@@ -828,7 +832,7 @@
             <Component class="javax.swing.JComboBox" name="currency_combobox">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="10">
+                  <StringArray count="7">
                     <StringItem index="0" value="US Dollar (USD)"/>
                     <StringItem index="1" value="Australian Dollar (AUD)"/>
                     <StringItem index="2" value="Canadian dollar (CAD)"/>
@@ -836,9 +840,6 @@
                     <StringItem index="4" value="Indian Rupee (INR)"/>
                     <StringItem index="5" value="New Taiwan Dollar (TWD)"/>
                     <StringItem index="6" value="Pound Sterling (GBP)"/>
-                    <StringItem index="7" value=" "/>
-                    <StringItem index="8" value=" "/>
-                    <StringItem index="9" value=" "/>
                   </StringArray>
                 </Property>
               </Properties>

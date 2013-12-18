@@ -204,6 +204,8 @@ public class EditFrame extends javax.swing.JFrame {
             }
         });
 
+        excludeKeywordsTextfield.setEnabled(false);
+
         excludeKeywordsLabel.setText("Exclude Words From Search");
 
         jLabel3.setText("In Category");
@@ -479,6 +481,7 @@ public class EditFrame extends javax.swing.JFrame {
         jLabel13.setText("to");
 
         onlyshowitems_row5_checkbox.setText("Items listed as lots");
+        onlyshowitems_row5_checkbox.setEnabled(false);
 
         onlyshowitems_row6_checkbox.setText("Sale items");
 
@@ -538,7 +541,7 @@ public class EditFrame extends javax.swing.JFrame {
 
         jLabel19.setText("Preferred currency:");
 
-        currency_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "US Dollar (USD)", "Australian Dollar (AUD)", "Canadian dollar (CAD)", "Euro (EUR)", "Indian Rupee (INR)", "New Taiwan Dollar (TWD)", "Pound Sterling (GBP)", " ", " ", " " }));
+        currency_combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "US Dollar (USD)", "Australian Dollar (AUD)", "Canadian dollar (CAD)", "Euro (EUR)", "Indian Rupee (INR)", "New Taiwan Dollar (TWD)", "Pound Sterling (GBP)" }));
         currency_combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 currency_comboboxActionPerformed(evt);

@@ -78,7 +78,8 @@ public class SearchEbayRunnable implements Runnable {
             itemFilter.add(addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true"));
             
             request.setSortOrder(getSortOrderFromSearchData(searchPatternData));
-                        
+            
+            itemFilter.add(addItemFilter(ItemFilterType.CURRENCY, getCurrencyStringFromSearchData(searchPatternData)));
             //ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             //ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
             //ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
@@ -203,5 +204,25 @@ public class SearchEbayRunnable implements Runnable {
         } catch (Exception ex) {}
         
         return SortOrderType.BEST_MATCH;
+    }
+
+    private String getCurrencyStringFromSearchData(HashMap<String, String> searchPatternData) {
+        /*
+        US Dollar (USD)
+        Australian Dollar (AUD)
+        Canadian dollar (CAD)
+        Euro (EUR)
+        Indian Rupee (INR)
+        New Taiwan Dollar (TWD)
+        Pound Sterling (GBP)
+        */
+        
+        String[] currencies = new String[] {"USD", "AUD", "CAD", "EUR", "INR", "TWD", "GBP"};
+        try {
+            int currencySelection = Integer.parseInt(searchPatternData.get("currency_combobox"));
+            return currencies[currencySelection];
+        } catch (Exception ex) {}
+        
+        return "USD";
     }
 }
