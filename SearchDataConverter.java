@@ -37,6 +37,22 @@ public class SearchDataConverter {
        }
    }
    
+   public static String LocatedInComboboxConversion (String number ) {
+       String[] data = new String[] {
+           "US",
+           "UK",
+           "AU",
+           "CA",
+           "CN"
+       };
+       try {
+           Integer i = Integer.parseInt(number);
+            return data[i];
+       } catch (Exception ex) {
+           return data[0];
+       }
+   }
+   
    
    
    //Use this in sortOrderType, not itemFilter

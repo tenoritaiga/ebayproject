@@ -120,6 +120,16 @@ public class SearchEbayRunnable implements Runnable {
                 e.printStackTrace();
             }
             
+            //If "Located In" is checked, only show items located in the selected country
+            try{
+                String locatedInEnabled = searchPatternData.get("located_row2_checkbox");
+                if(Boolean.parseBoolean(locatedInEnabled))
+                    //TODO: some stuff here, call converter or something I guess
+                    System.out.println("Hey Nick");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
             String conditionString = searchPatternData.get("item_condition_combobox").trim();
             //System.out.println("item condition string: "+conditionString);
             if(conditionString.equals("0")) {
