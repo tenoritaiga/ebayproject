@@ -521,7 +521,12 @@ public class EditFrame extends javax.swing.JFrame {
             }
         });
 
-        location_row2_field1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "North America", "Worldwide" }));
+        location_row2_field1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "United States", "United Kingdom", "Australia", "Canada", "China" }));
+        location_row2_field1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                location_row2_field1ActionPerformed(evt);
+            }
+        });
 
         location_row3_checkbox.setText("Only show items that ship to");
         location_row3_checkbox.addItemListener(new java.awt.event.ItemListener() {
@@ -919,6 +924,10 @@ public class EditFrame extends javax.swing.JFrame {
             this.location_row3_field1.setEnabled(false);
         }
     }//GEN-LAST:event_location_row3_checkboxItemStateChanged
+
+    private void location_row2_field1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_location_row2_field1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_location_row2_field1ActionPerformed
 
     /**
      * @param args the command line arguments
