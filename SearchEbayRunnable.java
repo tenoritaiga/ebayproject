@@ -21,6 +21,10 @@ import com.ebay.services.finding.SearchItem;
 import com.ebay.services.finding.SellingStatus;
 import com.ebay.services.finding.SortOrderType;
 import static ebayproject.SearchDataConverter.LocatedInComboboxConversion;
+import static ebayproject.SearchDataConverter.convertDateToEbayDateTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JLabel;
@@ -76,6 +80,81 @@ public class SearchEbayRunnable implements Runnable {
             request.setPaginationInput(pi);
             
             List<ItemFilter> itemFilter = request.getItemFilter();
+            
+            try {
+                boolean b = Boolean.parseBoolean(searchPatternData.get("onlyshowitems_row2_checkbox"));
+                if(b) {
+                    int ending_or_starting_selection = Integer.parseInt(searchPatternData.get("onlyshowitems_row2_field1"));
+                    
+                    /*
+                    Ending within
+                    Ending in more than
+                    Started within
+                    */
+                    
+                    String[] paramNameOptions = new String[] {
+                        "EndTimeTo",
+                        "EndTimeFrom",
+                        "StartTimeTo"
+                    };
+                    
+                    String paramName = paramNameOptions[ending_or_starting_selection];
+                    
+                    int[] firstParamPart = new int[] { 
+                        1, 2, 3, 4, 5, 12, 24,
+                        2, 3, 4, 5, 6, 7
+                    };
+                    
+                    int[] secondParamPart = new int[] {
+                        Calendar.HOUR_OF_DAY,
+                        Calendar.HOUR_OF_DAY,
+                        Calendar.HOUR_OF_DAY,
+                        Calendar.HOUR_OF_DAY,
+                        Calendar.HOUR_OF_DAY,
+                        Calendar.HOUR_OF_DAY,
+                        Calendar.HOUR_OF_DAY,
+                        Calendar.DAY_OF_YEAR,
+                        Calendar.DAY_OF_YEAR,
+                        Calendar.DAY_OF_YEAR,
+                        Calendar.DAY_OF_YEAR,
+                        Calendar.DAY_OF_YEAR,
+                        Calendar.DAY_OF_YEAR,
+                    };
+                    
+                    
+                    
+                    int timeSelection = Integer.parseInt(searchPatternData.get("onlyshowitems_row2_field2"));
+                    
+                    /*
+                    1 hour
+                    2 hours
+                    3 hours
+                    4 hours
+                    5 hours
+                    12 hours
+                    24 hours
+                    2 days
+                    3 days
+                    4 days
+                    5 days
+                    6 days
+                    7 days
+                    */
+                    
+                    Calendar calendar = new GregorianCalendar();
+                    calendar.setTime(new Date());
+                    calendar.add(secondParamPart[timeSelection], firstParamPart[timeSelection]);
+                    
+                    String datetime = convertDateToEbayDateTime(calendar.getTime());
+                    String paramValue = datetime;
+                    
+                    ItemFilter if1 = new ItemFilter();
+                    if1.setParamName(paramName);
+                    if1.setParamValue(paramValue);
+                    
+                    itemFilter.add(if1);
+                }
+            } catch (Exception ex) {}
             
             try {
                 boolean b = Boolean.parseBoolean(searchPatternData.get("selleroptions_checkbox"));

@@ -496,6 +496,7 @@ public class EditFrame extends javax.swing.JFrame {
         shippingoptions_row2_checkbox.setText("Local pickup available");
 
         location_row1_checkbox.setText("Only show items within");
+        location_row1_checkbox.setEnabled(false);
         location_row1_checkbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 location_row1_checkboxItemStateChanged(evt);
@@ -529,6 +530,7 @@ public class EditFrame extends javax.swing.JFrame {
         });
 
         location_row3_checkbox.setText("Only show items that ship to");
+        location_row3_checkbox.setEnabled(false);
         location_row3_checkbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 location_row3_checkboxItemStateChanged(evt);

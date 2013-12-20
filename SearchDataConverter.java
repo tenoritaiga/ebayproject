@@ -1,5 +1,8 @@
 package ebayproject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author nicholas
@@ -35,6 +38,11 @@ public class SearchDataConverter {
        } catch (Exception ex) {
            return data[0];
        }
+   }
+   
+   public static String convertDateToEbayDateTime(java.util.Date d) {
+       SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-DDTHH:MM:SS.SSSZ");
+       return formatter.format(d);
    }
    
    public static String LocatedInComboboxConversion (String number ) {
