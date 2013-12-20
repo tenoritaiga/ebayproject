@@ -453,6 +453,7 @@ public class EditFrame extends javax.swing.JFrame {
         onlyshowitems_row2_field2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1 hour", "2 hours", "3 hours", "4 hours", "5 hours", "12 hours", "24 hours", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days" }));
 
         onlyshowitems_row3_checkbox.setText("Number of bids from");
+        onlyshowitems_row3_checkbox.setEnabled(false);
         onlyshowitems_row3_checkbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 onlyshowitems_row3_checkboxItemStateChanged(evt);
@@ -467,6 +468,7 @@ public class EditFrame extends javax.swing.JFrame {
         jLabel12.setText("to");
 
         onlyshowitems_row4_checkbox.setText("Number of item listings from");
+        onlyshowitems_row4_checkbox.setEnabled(false);
         onlyshowitems_row4_checkbox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 onlyshowitems_row4_checkboxItemStateChanged(evt);

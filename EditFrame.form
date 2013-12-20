@@ -653,6 +653,7 @@
             <Component class="javax.swing.JCheckBox" name="onlyshowitems_row3_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Number of bids from"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="onlyshowitems_row3_checkboxItemStateChanged"/>
@@ -671,6 +672,7 @@
             <Component class="javax.swing.JCheckBox" name="onlyshowitems_row4_checkbox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Number of item listings from"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="onlyshowitems_row4_checkboxItemStateChanged"/>
