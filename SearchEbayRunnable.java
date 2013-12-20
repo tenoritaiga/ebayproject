@@ -46,7 +46,7 @@ public class SearchEbayRunnable implements Runnable {
         this.statusLabel = statusLabel;
     }
     
-    public ItemFilter addItemFilter(ItemFilterType filterType, String value) {
+    public ItemFilter createItemFilter(ItemFilterType filterType, String value) {
         
         ItemFilter itemfilter = new ItemFilter();
         itemfilter.setName(filterType);
@@ -80,16 +80,16 @@ public class SearchEbayRunnable implements Runnable {
             try {
                 boolean b = Boolean.parseBoolean(searchPatternData.get("onlyshowitems_row1_checkbox"));
                 if(b) {
-                    itemFilter.add(addItemFilter(ItemFilterType.PAYMENT_METHOD, "PayPal"));
+                    itemFilter.add(createItemFilter(ItemFilterType.PAYMENT_METHOD, "PayPal"));
                 }
             } catch (Exception ex) {}
             
             
-            itemFilter.add(addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true"));
+            itemFilter.add(createItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true"));
             
             request.setSortOrder(getSortOrderFromSearchData(searchPatternData));
             
-            itemFilter.add(addItemFilter(ItemFilterType.CURRENCY, getCurrencyStringFromSearchData(searchPatternData)));
+            itemFilter.add(createItemFilter(ItemFilterType.CURRENCY, getCurrencyStringFromSearchData(searchPatternData)));
             //ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
             //ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
             //ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
@@ -98,7 +98,7 @@ public class SearchEbayRunnable implements Runnable {
             try {
                 String bestOfferEnabled = searchPatternData.get("onlyshowitems_row7_checkbox");
                 if(Boolean.parseBoolean(bestOfferEnabled))
-                    itemFilter.add(addItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true"));
+                    itemFilter.add(createItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true"));
             } catch (Exception e) {
                 //e.printStackTrace();
             }
@@ -107,7 +107,7 @@ public class SearchEbayRunnable implements Runnable {
             try{
                 String freeShippingEnabled = searchPatternData.get("shippingoptions_row1_checkbox");
                 if(Boolean.parseBoolean(freeShippingEnabled))
-                    itemFilter.add(addItemFilter(ItemFilterType.FREE_SHIPPING_ONLY,"true"));
+                    itemFilter.add(createItemFilter(ItemFilterType.FREE_SHIPPING_ONLY,"true"));
             } catch (Exception e) {
                 //e.printStackTrace();
             }
@@ -116,7 +116,7 @@ public class SearchEbayRunnable implements Runnable {
             try{
                 String freeShippingEnabled = searchPatternData.get("shippingoptions_row2_checkbox");
                 if(Boolean.parseBoolean(freeShippingEnabled))
-                    itemFilter.add(addItemFilter(ItemFilterType.LOCAL_PICKUP_ONLY,"true"));
+                    itemFilter.add(createItemFilter(ItemFilterType.LOCAL_PICKUP_ONLY,"true"));
             } catch (Exception e) {
                 //e.printStackTrace();
             }
@@ -128,7 +128,7 @@ public class SearchEbayRunnable implements Runnable {
                     //TODO: some stuff here, call converter or something I guess
                     String countrySelection = searchPatternData.get("location_row2_field1");
                     String countryString = LocatedInComboboxConversion(countrySelection);
-                    itemFilter.add(addItemFilter(ItemFilterType.LOCATED_IN, countryString));
+                    itemFilter.add(createItemFilter(ItemFilterType.LOCATED_IN, countryString));
                 }
             } catch (Exception e) {
                 //e.printStackTrace();
@@ -139,11 +139,11 @@ public class SearchEbayRunnable implements Runnable {
             if(conditionString.equals("0")) {
                 // New Items only
                 //System.out.println("only new items");
-                itemFilter.add(addItemFilter(ItemFilterType.CONDITION, "1000"));
+                itemFilter.add(createItemFilter(ItemFilterType.CONDITION, "1000"));
             } else if(conditionString.equals("1")) {
                 // Used Items only
                 //System.out.println("only used items");
-                itemFilter.add(addItemFilter(ItemFilterType.CONDITION, "3000"));
+                itemFilter.add(createItemFilter(ItemFilterType.CONDITION, "3000"));
             } else {
                 // if unspecified then dont add item filter
             }
