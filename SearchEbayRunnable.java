@@ -78,6 +78,13 @@ public class SearchEbayRunnable implements Runnable {
             List<ItemFilter> itemFilter = request.getItemFilter();
             
             try {
+                boolean b = Boolean.parseBoolean(searchPatternData.get("selleroptions_checkbox"));
+                if(b) {
+                    itemFilter.add(createItemFilter(ItemFilterType.LISTING_TYPE, "StoreInventory"));
+                }
+            } catch (Exception ex) {}
+            
+            try {
                 boolean b = Boolean.parseBoolean(searchPatternData.get("onlyshowitems_row1_checkbox"));
                 if(b) {
                     itemFilter.add(createItemFilter(ItemFilterType.PAYMENT_METHOD, "PayPal"));
@@ -125,7 +132,6 @@ public class SearchEbayRunnable implements Runnable {
             try{
                 String locatedInEnabled = searchPatternData.get("located_row2_checkbox");
                 if(Boolean.parseBoolean(locatedInEnabled)) {
-                    //TODO: some stuff here, call converter or something I guess
                     String countrySelection = searchPatternData.get("location_row2_field1");
                     String countryString = LocatedInComboboxConversion(countrySelection);
                     itemFilter.add(createItemFilter(ItemFilterType.LOCATED_IN, countryString));
@@ -187,8 +193,6 @@ public class SearchEbayRunnable implements Runnable {
                 
                 if(!priceInValidRange(amount.getValue(), searchPatternData))
                     continue;
-                
-                //TODO: if seller info checkbox checked and listing_info.listingType != StoreInventory, continue
                 
                 hm.put("price", ""+amount.getValue()+" "+amount.getCurrencyId());
                 hm.put("itemId", item.getItemId());
