@@ -75,6 +75,15 @@ public class SearchEbayRunnable implements Runnable {
             request.setPaginationInput(pi);
             
             List<ItemFilter> itemFilter = request.getItemFilter();
+            
+            try {
+                boolean b = Boolean.parseBoolean(searchPatternData.get("onlyshowitems_row1_checkbox"));
+                if(b) {
+                    itemFilter.add(addItemFilter(ItemFilterType.PAYMENT_METHOD, "PayPal"));
+                }
+            } catch (Exception ex) {}
+            
+            
             itemFilter.add(addItemFilter(ItemFilterType.HIDE_DUPLICATE_ITEMS,"true"));
             
             request.setSortOrder(getSortOrderFromSearchData(searchPatternData));
