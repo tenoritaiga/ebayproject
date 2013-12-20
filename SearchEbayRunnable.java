@@ -188,6 +188,8 @@ public class SearchEbayRunnable implements Runnable {
                 if(!priceInValidRange(amount.getValue(), searchPatternData))
                     continue;
                 
+                //TODO: if seller info checkbox checked and listing_info.listingType != StoreInventory, continue
+                
                 hm.put("price", ""+amount.getValue()+" "+amount.getCurrencyId());
                 hm.put("itemId", item.getItemId());
                 hm.put("url", item.getViewItemURL());
