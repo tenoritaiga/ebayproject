@@ -89,7 +89,18 @@ public class SearchEbayRunnable implements Runnable {
                 String bestOfferEnabled = searchPatternData.get("onlyshowitems_row7_checkbox");
                 if(Boolean.parseBoolean(bestOfferEnabled))
                     addItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true");
-            } catch (Exception ex) {}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            //If "Free shipping" is checked, only show items with free shipping
+            try{
+                String freeShippingEnabled = searchPatternData.get("shippingoptions_row1_checkbox");
+                if(Boolean.parseBoolean(freeShippingEnabled))
+                    addItemFilter(ItemFilterType.FREE_SHIPPING_ONLY,"true");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             
             String conditionString = searchPatternData.get("item_condition_combobox").trim();
             //System.out.println("item condition string: "+conditionString);
