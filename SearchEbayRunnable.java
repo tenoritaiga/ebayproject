@@ -102,6 +102,15 @@ public class SearchEbayRunnable implements Runnable {
                 e.printStackTrace();
             }
             
+            //If "Local Pickup" is checked, only show items with local pickup
+            try{
+                String freeShippingEnabled = searchPatternData.get("shippingoptions_row2_checkbox");
+                if(Boolean.parseBoolean(freeShippingEnabled))
+                    addItemFilter(ItemFilterType.LOCAL_PICKUP_ONLY,"true");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
             String conditionString = searchPatternData.get("item_condition_combobox").trim();
             //System.out.println("item condition string: "+conditionString);
             if(conditionString.equals("0")) {
