@@ -777,13 +777,18 @@
             <Component class="javax.swing.JComboBox" name="location_row2_field1">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
+                  <StringArray count="5">
                     <StringItem index="0" value="United States"/>
-                    <StringItem index="1" value="North America"/>
-                    <StringItem index="2" value="Worldwide"/>
+                    <StringItem index="1" value="United Kingdom"/>
+                    <StringItem index="2" value="Australia"/>
+                    <StringItem index="3" value="Canada"/>
+                    <StringItem index="4" value="China"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="location_row2_field1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="location_row3_checkbox">
               <Properties>
