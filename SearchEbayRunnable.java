@@ -99,7 +99,7 @@ public class SearchEbayRunnable implements Runnable {
                 if(Boolean.parseBoolean(bestOfferEnabled))
                     addItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true");
             } catch (Exception e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
             
             //If "Free shipping" is checked, only show items with free shipping
@@ -108,7 +108,7 @@ public class SearchEbayRunnable implements Runnable {
                 if(Boolean.parseBoolean(freeShippingEnabled))
                     addItemFilter(ItemFilterType.FREE_SHIPPING_ONLY,"true");
             } catch (Exception e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
             
             //If "Local Pickup" is checked, only show items with local pickup
@@ -117,7 +117,7 @@ public class SearchEbayRunnable implements Runnable {
                 if(Boolean.parseBoolean(freeShippingEnabled))
                     addItemFilter(ItemFilterType.LOCAL_PICKUP_ONLY,"true");
             } catch (Exception e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
             
             //If "Located In" is checked, only show items located in the selected country
@@ -127,7 +127,7 @@ public class SearchEbayRunnable implements Runnable {
                     //TODO: some stuff here, call converter or something I guess
                     System.out.println("Hey Nick");
             } catch (Exception e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
             
             String conditionString = searchPatternData.get("item_condition_combobox").trim();
