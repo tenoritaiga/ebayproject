@@ -20,6 +20,7 @@ import com.ebay.services.finding.PaginationInput;
 import com.ebay.services.finding.SearchItem;
 import com.ebay.services.finding.SellingStatus;
 import com.ebay.services.finding.SortOrderType;
+import static ebayproject.SearchDataConverter.LocatedInComboboxConversion;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JLabel;
@@ -97,7 +98,7 @@ public class SearchEbayRunnable implements Runnable {
             try {
                 String bestOfferEnabled = searchPatternData.get("onlyshowitems_row7_checkbox");
                 if(Boolean.parseBoolean(bestOfferEnabled))
-                    addItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true");
+                    itemFilter.add(addItemFilter(ItemFilterType.BEST_OFFER_ONLY,"true"));
             } catch (Exception e) {
                 //e.printStackTrace();
             }
@@ -106,7 +107,7 @@ public class SearchEbayRunnable implements Runnable {
             try{
                 String freeShippingEnabled = searchPatternData.get("shippingoptions_row1_checkbox");
                 if(Boolean.parseBoolean(freeShippingEnabled))
-                    addItemFilter(ItemFilterType.FREE_SHIPPING_ONLY,"true");
+                    itemFilter.add(addItemFilter(ItemFilterType.FREE_SHIPPING_ONLY,"true"));
             } catch (Exception e) {
                 //e.printStackTrace();
             }
@@ -115,7 +116,7 @@ public class SearchEbayRunnable implements Runnable {
             try{
                 String freeShippingEnabled = searchPatternData.get("shippingoptions_row2_checkbox");
                 if(Boolean.parseBoolean(freeShippingEnabled))
-                    addItemFilter(ItemFilterType.LOCAL_PICKUP_ONLY,"true");
+                    itemFilter.add(addItemFilter(ItemFilterType.LOCAL_PICKUP_ONLY,"true"));
             } catch (Exception e) {
                 //e.printStackTrace();
             }
@@ -123,9 +124,12 @@ public class SearchEbayRunnable implements Runnable {
             //If "Located In" is checked, only show items located in the selected country
             try{
                 String locatedInEnabled = searchPatternData.get("located_row2_checkbox");
-                if(Boolean.parseBoolean(locatedInEnabled))
+                if(Boolean.parseBoolean(locatedInEnabled)) {
                     //TODO: some stuff here, call converter or something I guess
-                    System.out.println("Hey Nick");
+                    String countrySelection = searchPatternData.get("location_row2_field1");
+                    String countryString = LocatedInComboboxConversion(countrySelection);
+                    itemFilter.add(addItemFilter(ItemFilterType.LOCATED_IN, countryString));
+                }
             } catch (Exception e) {
                 //e.printStackTrace();
             }

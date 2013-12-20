@@ -40,7 +40,7 @@ public class SearchDataConverter {
    public static String LocatedInComboboxConversion (String number ) {
        String[] data = new String[] {
            "US",
-           "UK",
+           "GB",
            "AU",
            "CA",
            "CN"
