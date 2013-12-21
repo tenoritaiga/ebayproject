@@ -262,7 +262,7 @@ public class SearchEbayRunnable implements Runnable {
                 result = serviceClient.findItemsAdvanced(request);
                 items.addAll(result.getSearchResult().getItem());
                 
-                //System.out.println("Ack = "+result.getAck());
+                System.out.println("Ack = "+result.getAck());
                 //System.out.println("Found " + result.getSearchResult().getCount() + " items.");
                 
                 if(result.getSearchResult().getItem().isEmpty())
