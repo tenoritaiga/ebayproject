@@ -31,8 +31,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 
 /**
- *
- * @author nbevacqu
+ * this class is used to search ebay for different search results
  */
 public class SearchEbayRunnable implements Runnable {
 
@@ -50,6 +49,7 @@ public class SearchEbayRunnable implements Runnable {
         this.statusLabel = statusLabel;
     }
     
+    // item filters filter out results according to user specifications
     public ItemFilter createItemFilter(ItemFilterType filterType, String value) {
         
         ItemFilter itemfilter = new ItemFilter();
@@ -60,6 +60,7 @@ public class SearchEbayRunnable implements Runnable {
         
     }
 
+    // the method the thread pool invokes when executing this runnable
     public void run() {
 
         try {
@@ -148,9 +149,24 @@ public class SearchEbayRunnable implements Runnable {
                     String datetime = convertDateToEbayDateTime(calendar.getTime());
                     String paramValue = datetime;
                     
-                    ItemFilter if1 = new ItemFilter();
-                    if1.setParamName(paramName);
-                    if1.setParamValue(paramValue);
+                    
+                    /*
+                    "EndTimeTo",
+                        "EndTimeFrom",
+                        "StartTimeTo"
+                    */
+                    ItemFilter if1;
+                    
+                    if(paramName.equalsIgnoreCase("EndTimeTo")) {
+                        if1 = createItemFilter(ItemFilterType.END_TIME_TO, paramValue);
+                    } else if(paramName.equalsIgnoreCase("EndTimeFrom")) {
+                        if1 = createItemFilter(ItemFilterType.END_TIME_FROM, paramValue);
+                    } else {
+                        if1 = new ItemFilter();
+                        if1.setParamName(paramName);
+                        if1.setParamValue(paramValue);
+                    }
+                    
                     
                     itemFilter.add(if1);
                 }
@@ -176,9 +192,6 @@ public class SearchEbayRunnable implements Runnable {
             request.setSortOrder(getSortOrderFromSearchData(searchPatternData));
             
             itemFilter.add(createItemFilter(ItemFilterType.CURRENCY, getCurrencyStringFromSearchData(searchPatternData)));
-            //ItemFilter objFilter1 = addItemFilter(ItemFilterType.AVAILABLE_TO,"US");
-            //ItemFilter objFilter2 = addItemFilter(ItemFilterType.LISTING_TYPE,"All");
-            //ItemFilter objFilter4 = addItemFilter(ItemFilterType.CURRENCY,"USD");
             
             //If "Best offers" is checked, only show items with best offer
             try {

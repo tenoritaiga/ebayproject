@@ -27,8 +27,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author nbevacqu
+ * this class displayed both search results (both new and saved) onscreen
  */
 public class ResultsFrame extends javax.swing.JFrame {
 
@@ -39,13 +38,21 @@ public class ResultsFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    // a reference to the search results currently being displayed in the table
     private List< HashMap<String, String> > currentlyDisplayedResults = null;
+    // a reference to the home window
     private JFrame homeWindow;
+    // a list of maps representing search patterns
     private ArrayList<HashMap<String, String>> searchData;
+    
+    // each map represents a search results from ebay
     private ArrayList<ArrayList<HashMap<String, String>>> searchResults = new ArrayList<ArrayList<HashMap<String, String>>>();
     
+    // used to search in parallel
     private ExecutorService threadPool = Executors.newCachedThreadPool();
     
+    
+    // listen for mouse clicks on the table
     private MouseListener jtableMouseListener = new MouseListener() {
 
             @Override
@@ -58,12 +65,17 @@ public class ResultsFrame extends javax.swing.JFrame {
                     
                     HashMap<String, String> hm;
                     synchronized(currentlyDisplayedResults) {
+                        // cant display non-existant results
+                        if(currentlyDisplayedResults.size() >= selectedRow)
+                            return;
+                        
                         hm = currentlyDisplayedResults.get(selectedRow);
                     }
                     
                     String url = (String) hm.get("url");
                     System.out.println(url);
                     try {
+                        // launch a web browser to show the result
                         URL url1 = new URL(url);
                         Desktop d = Desktop.getDesktop();
                         d.browse(new URI(url1.toString()));
@@ -95,7 +107,7 @@ public class ResultsFrame extends javax.swing.JFrame {
             }
         };
     
-    // invoked when loading saved search results
+    // invoked when loading saved search results.
     public ResultsFrame(final JFrame homeWindow, final File savedSearchResultsFile) {
         initComponents();
         this.homeWindow = homeWindow;
@@ -109,7 +121,10 @@ public class ResultsFrame extends javax.swing.JFrame {
         this.statusLabel.updateUI();
         this.jTable1.setEnabled(false);
         
+        // add a mouse listener to the table
         this.jTable1.addMouseListener(jtableMouseListener);
+        
+        // listen for window close events
         this.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -156,11 +171,13 @@ public class ResultsFrame extends javax.swing.JFrame {
         threadPool.submit(new Runnable() {
             public void run() {
                 try {
+                    // load saved results
                     FileInputStream f = new FileInputStream(savedSearchResultsFile);
                     ObjectInputStream s = new ObjectInputStream(f);
                     ArrayList<HashMap<String, String>> data = (ArrayList<HashMap<String, String>>) s.readObject();
                     s.close();
                     
+                    // use atomic integer to determine when all results have been loaded
                     final AtomicInteger numLeft = new AtomicInteger(data.size());
                     currentlyDisplayedResults = data;
                     for(HashMap<String, String> rowResult : data) {
@@ -193,6 +210,7 @@ public class ResultsFrame extends javax.swing.JFrame {
         });
     }
     
+    // used when trying to display new search results
     public ResultsFrame(final JFrame homeWindow, ArrayList<HashMap<String, String>> data) {
         initComponents();
         this.homeWindow = homeWindow;
@@ -204,6 +222,7 @@ public class ResultsFrame extends javax.swing.JFrame {
             homeWindow.setVisible(false);
         
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        // listen for window close events
         this.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -250,6 +269,7 @@ public class ResultsFrame extends javax.swing.JFrame {
             }
         });
         
+        // wait for all search results to return before displaying anything
         final AtomicInteger numSearchesRemaining = new AtomicInteger(data.size());
         final String[] names = new String[data.size()];
         for(int i = 0; i < data.size(); i++) {
@@ -270,6 +290,7 @@ public class ResultsFrame extends javax.swing.JFrame {
         
         jTable1.addMouseListener(jtableMouseListener);
         
+        // on list selection, load that search patterns results in the table (if any)
         jList1.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -419,6 +440,7 @@ public class ResultsFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // save search results for the selected search pattern to a file
     private void saveResultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveResultsButtonActionPerformed
         int selectedIndex = -1;
 
@@ -479,6 +501,7 @@ public class ResultsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveResultsButtonActionPerformed
 
     /**
+     * this method is used for test purposes
      * @param args the command line arguments
      */
     public static void main(String args[]) {

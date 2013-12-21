@@ -14,8 +14,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 
 /**
- *
- * @author nbevacqu
+ * this class allows images to be displayed in a JTable.
+ * It uses the ImageIcon class and JLabels to handle the actual rendering
+ * This also allows us to load files hosted by ebay online
  * adapted from stackoverflow entry
  * http://stackoverflow.com/questions/3222951/java-put-image-in-jtable-cell
  */

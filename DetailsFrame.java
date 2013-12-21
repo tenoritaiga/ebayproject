@@ -7,8 +7,7 @@
 package ebayproject;
 
 /**
- *
- * @author stiltzkin
+ * this JFrame displays individual search results
  */
 public class DetailsFrame extends javax.swing.JFrame {
 
@@ -80,6 +79,7 @@ public class DetailsFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * this main method is only for testing purposes
      * @param args the command line arguments
      */
     public static void main(String args[]) {

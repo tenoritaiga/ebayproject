@@ -12,8 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
- *
- * @author nicholas
+ * this class contains helper methods for saving/restoring GUI information to/from a string
  */
 public class EditFrameDataHandling {
     public static void RestoreFieldData(JTextField tf, HashMap<String, String> data, String fieldName) {

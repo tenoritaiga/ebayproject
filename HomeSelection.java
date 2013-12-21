@@ -11,8 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JCheckBox;
 
 /**
- *
- * @author nbevacqu
+ * this class represents a single search pattern in the main interface
  */
 public class HomeSelection extends javax.swing.JPanel {
 

@@ -14,8 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
- *
- * @author nbevacqu
+ * this JFrame is used to allow the editing of search patterns
  */
 public class EditFrame extends javax.swing.JFrame {
 
@@ -27,12 +26,19 @@ public class EditFrame extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
+    /**
+     * constructor
+     * @param homeWindow reference to main window
+     * @param hm hashmap representing search pattern being edited
+     * @param serializeDataRunnable runnable to call to serialize entered data
+     */
     public EditFrame(final JFrame homeWindow, HashMap<String, String> hm, Runnable serializeDataRunnable) {
         initComponents();
         homeWindow.setVisible(false);
         this.serializeDataRunnable = serializeDataRunnable;
         this.data = hm;
         this.homeWindow = homeWindow;
+        // this window listener ensures the the main interface is displayed on window close
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.addWindowListener(new WindowListener() {
             @Override
@@ -71,6 +77,9 @@ public class EditFrame extends javax.swing.JFrame {
                 
             }
         });
+        
+        // RestoreFieldData takes data from the hashmap and enters it in the GUI components
+        // one method call per displayed and editable GUI component
         
         RestoreFieldData(searchPatternName, data, "name");
         RestoreFieldData(keywords, data, "keywords");
@@ -728,54 +737,55 @@ public class EditFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void keywordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywordsActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_keywordsActionPerformed
 
     private void keywords_specfier_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywords_specfier_comboboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_keywords_specfier_comboboxActionPerformed
 
     private void searchincluding_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchincluding_row1_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_searchincluding_row1_checkboxActionPerformed
 
     private void searchincluding_row2_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchincluding_row2_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_searchincluding_row2_checkboxActionPerformed
 
     private void searchincluding_row3_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchincluding_row3_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_searchincluding_row3_checkboxActionPerformed
 
     private void priceConstraintsCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceConstraintsCheckboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_priceConstraintsCheckboxActionPerformed
 
     private void buyingformats_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyingformats_row1_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_buyingformats_row1_checkboxActionPerformed
 
     private void buyingformats_row2_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyingformats_row2_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_buyingformats_row2_checkboxActionPerformed
 
     private void buyingformats_row3_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyingformats_row3_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_buyingformats_row3_checkboxActionPerformed
 
     private void priceConstraintsField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceConstraintsField1ActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_priceConstraintsField1ActionPerformed
 
     private void priceConstraintsField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceConstraintsField2ActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_priceConstraintsField2ActionPerformed
 
     private void searchPatternNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPatternNameActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_searchPatternNameActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // Save field data takes information entered into GUI components and serialized it as a string in the hashmap
         SaveFieldData(searchPatternName, data, "name");
         SaveFieldData(keywords, data, "keywords");
         SaveFieldData(keywords_specfier_combobox, data, "keywords_specfier_combobox");
@@ -817,39 +827,42 @@ public class EditFrame extends javax.swing.JFrame {
         SaveFieldData(sort_results_combobox, data, "sort_results_combobox");
         //data.put("name", this.searchPatternName.getText());
         //data.put("keywords", this.keywords.getText());
+        
+        // save serialized data to file through the provided runnable
         if(this.serializeDataRunnable != null)
             this.serializeDataRunnable.run();
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void onlyshowitems_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row1_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_onlyshowitems_row1_checkboxActionPerformed
 
     private void onlyshowitems_row2_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row2_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_onlyshowitems_row2_checkboxActionPerformed
 
     private void onlyshowitems_row2_field1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row2_field1ActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_onlyshowitems_row2_field1ActionPerformed
 
     private void onlyshowitems_row3_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row3_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_onlyshowitems_row3_checkboxActionPerformed
 
     private void onlyshowitems_row4_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlyshowitems_row4_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_onlyshowitems_row4_checkboxActionPerformed
 
     private void location_row1_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_location_row1_checkboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_location_row1_checkboxActionPerformed
 
     private void currency_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currency_comboboxActionPerformed
-        // TODO add your handling code here:
+        // Not Used
     }//GEN-LAST:event_currency_comboboxActionPerformed
 
     private void priceConstraintsCheckboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_priceConstraintsCheckboxItemStateChanged
+        // only enable fields if checkbox selected
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
             this.priceConstraintsField1.setEnabled(true);
@@ -862,6 +875,7 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_priceConstraintsCheckboxItemStateChanged
 
     private void onlyshowitems_row2_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_onlyshowitems_row2_checkboxItemStateChanged
+        // only enable fields if checkbox selected
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
             this.onlyshowitems_row2_field1.setEnabled(true);
@@ -874,6 +888,7 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_onlyshowitems_row2_checkboxItemStateChanged
 
     private void onlyshowitems_row3_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_onlyshowitems_row3_checkboxItemStateChanged
+        // only enable fields if checkbox selected
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
             this.onlyshowitems_row3_field1.setEnabled(true);
@@ -886,6 +901,7 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_onlyshowitems_row3_checkboxItemStateChanged
 
     private void onlyshowitems_row4_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_onlyshowitems_row4_checkboxItemStateChanged
+        // only enable fields if checkbox selected
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
             this.onlyshowitems_row4_field1.setEnabled(true);
@@ -898,6 +914,7 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_onlyshowitems_row4_checkboxItemStateChanged
 
     private void location_row1_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_location_row1_checkboxItemStateChanged
+        // only enable fields if checkbox selected
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
             this.location_row1_field1.setEnabled(true);
@@ -910,6 +927,7 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_location_row1_checkboxItemStateChanged
 
     private void location_row2_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_location_row2_checkboxItemStateChanged
+        // only enable fields if checkbox selected
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
             this.location_row2_field1.setEnabled(true);
@@ -920,6 +938,7 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_location_row2_checkboxItemStateChanged
 
     private void location_row3_checkboxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_location_row3_checkboxItemStateChanged
+        // only enable fields if checkbox selected
         if(evt.getStateChange() == ItemEvent.SELECTED) {
             // enable other 2 components
             this.location_row3_field1.setEnabled(true);
@@ -930,10 +949,11 @@ public class EditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_location_row3_checkboxItemStateChanged
 
     private void location_row2_field1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_location_row2_field1ActionPerformed
-        // TODO add your handling code here:
+        // Not used
     }//GEN-LAST:event_location_row2_field1ActionPerformed
 
     /**
+     * main method for testing purposes only
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -975,9 +995,11 @@ public class EditFrame extends javax.swing.JFrame {
         });
     }
     
-    
+    // runnable used to save data to a file
     private Runnable serializeDataRunnable = null;
+    // reference to main interface
     private JFrame homeWindow = null;
+    // hashmap to hold data for this search pattern
     private HashMap<String, String> data = new HashMap<String, String>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox buyingformats_row1_checkbox;

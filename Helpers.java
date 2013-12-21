@@ -15,10 +15,10 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
- * @author nbevacqu
+ * various helper methods
  */
 public class Helpers {
+    // save list of hashmaps to a file
     public synchronized static boolean serializeListOfHashMaps(File file, ArrayList<HashMap<String, String>> fileObj) {
         try {
             System.out.println(String.format("serializing list of maps: %d maps", fileObj.size()));
@@ -35,6 +35,10 @@ public class Helpers {
         }
     }
     
+    // load list previously seen item ids and remove previously seen items
+    // from list of search results
+    // also expire items that have been on list for >= 60 days to ensure file size
+    // does not grow infinitely
     public synchronized static void filterEbaySearchResultsByItemFilter(ArrayList<HashMap<String, String>> results) {
         HashMap<String, Date> previouslySeenItems = null;
         File file = new File("previouslySeenIds.data");

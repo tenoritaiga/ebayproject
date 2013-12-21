@@ -4,8 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
- * @author nicholas
+ * this class contains helper conversion method when trying to apply search result filters
  */
 public class SearchDataConverter {
    public static String CurrencyComboboxConversion (String number) {
